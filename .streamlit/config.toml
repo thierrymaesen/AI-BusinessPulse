@@ -1,0 +1,33 @@
+# ============================================================
+# AI-BusinessPulse - Configuration Streamlit
+# ============================================================
+# Ce fichier configure le thème visuel de l'application.
+# Placez-le dans le dossier .streamlit/ à la racine du projet.
+# ============================================================
+
+[theme]
+# Couleur principale de l'application (boutons, liens, accents)
+primaryColor = "#3498db"
+
+# Couleur de fond de la page principale
+backgroundColor = "#0e1117"
+
+# Couleur de fond des composants (sidebar, cards, etc.)
+secondaryBackgroundColor = "#1a1a2e"
+
+# Couleur du texte principal
+textColor = "#fafafa"
+
+# Police de caractères utilisée
+font = "sans serif"
+
+[server]
+# Port par défaut de l'application
+port = 8501
+
+# Ouvre automatiquement le navigateur au lancement
+headless = false
+
+[browser]
+# Titre de l'onglet du navigateur
+serverAddress = "localhost"
