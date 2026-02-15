@@ -558,17 +558,17 @@ class BusinessPulseEngine:
     # ============================================================
 
 def main():
-        """
-            Fonction principale qui construit l'interface Streamlit.
+    """
+        Fonction principale qui construit l'interface Streamlit.
 
-                    Structure de l'interface :
-                        - Barre latérale : Configuration de l'entreprise
-                            - Onglet 1 : Dashboard & Agrégation d'avis
-                                - Onglet 2 : Analyse de Sentiment & Émotions
-                                    - Onglet 3 : Générateur de Réponses IA
-                                        - Onglet 4 : Radar Concurrentiel
-                                            - Onglet 5 : Prédictions de Tendances
-                                                """
+                Structure de l'interface :
+                    - Barre latérale : Configuration de l'entreprise
+                        - Onglet 1 : Dashboard & Agrégation d'avis
+                            - Onglet 2 : Analyse de Sentiment & Émotions
+                                - Onglet 3 : Générateur de Réponses IA
+                                    - Onglet 4 : Radar Concurrentiel
+                                        - Onglet 5 : Prédictions de Tendances
+                                            """
 
     # ---- EN-TÊTE DE L'APPLICATION ----
     st.markdown("""
@@ -583,7 +583,7 @@ def main():
 
     # ---- BARRE LATÉRALE : CONFIGURATION ----
     with st.sidebar:
-                st.image("https://img.icons8.com/fluency/96/brain.png", width=80)
+        st.image("https://img.icons8.com/fluency/96/brain.png", width=80)
         st.title("⚙️ Configuration")
         st.markdown("---")
 
