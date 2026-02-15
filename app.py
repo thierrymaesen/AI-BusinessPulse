@@ -513,41 +513,41 @@ class BusinessPulseEngine:
         # Régression linéaire simple (y = ax + b)
         if len(x_values) > 1:
             coefficients = np.polyfit(x_values, y_values, 1)  # Degré 1
-        slope = coefficients[0]      # Pente de la tendance
-        intercept = coefficients[1]  # Ordonnée à l'origine
-    else:
-        slope = 0
-        intercept = y_values[0] if len(y_values) > 0 else 3.5
+            slope = coefficients[0]      # Pente de la tendance
+            intercept = coefficients[1]  # Ordonnée à l'origine
+        else:
+            slope = 0
+            intercept = y_values[0] if len(y_values) > 0 else 3.5
 
-    # Génération des prédictions futures
-    future_x = np.arange(len(monthly), len(monthly) + months_ahead)
-    predictions = slope * future_x + intercept
+        # Génération des prédictions futures
+        future_x = np.arange(len(monthly), len(monthly) + months_ahead)
+        predictions = slope * future_x + intercept
 
-    # Bornage des prédictions entre 1 et 5
-    predictions = np.clip(predictions, 1.0, 5.0)
+        # Bornage des prédictions entre 1 et 5
+        predictions = np.clip(predictions, 1.0, 5.0)
 
-    # Calcul de l'intervalle de confiance (± écart-type)
-    std_dev = np.std(y_values) if len(y_values) > 1 else 0.3
-    confidence_upper = np.clip(predictions + std_dev, 1.0, 5.0)
-    confidence_lower = np.clip(predictions - std_dev, 1.0, 5.0)
+        # Calcul de l'intervalle de confiance (± écart-type)
+        std_dev = np.std(y_values) if len(y_values) > 1 else 0.3
+        confidence_upper = np.clip(predictions + std_dev, 1.0, 5.0)
+        confidence_lower = np.clip(predictions - std_dev, 1.0, 5.0)
 
-    # Génération des dates futures
-    last_date = monthly.index[-1] if len(monthly) > 0 else datetime.now()
-    future_dates = [
-        last_date + timedelta(days=30 * (i + 1))
-        for i in range(months_ahead)
-    ]
+        # Génération des dates futures
+        last_date = monthly.index[-1] if len(monthly) > 0 else datetime.now()
+        future_dates = [
+            last_date + timedelta(days=30 * (i + 1))
+            for i in range(months_ahead)
+        ]
 
         return {
-        "historical_dates": monthly.index.tolist(),
-        "historical_values": y_values.tolist(),
-        "predicted_dates": future_dates,
-        "predicted_values": predictions.tolist(),
-        "confidence_upper": confidence_upper.tolist(),
-        "confidence_lower": confidence_lower.tolist(),
-        "trend": "📈 Hausse" if slope > 0.01 else ("📉 Baisse" if slope < -0.01 else "➡️ Stable"),
-        "slope": round(slope, 4)
-    }
+            "historical_dates": monthly.index.tolist(),
+            "historical_values": y_values.tolist(),
+            "predicted_dates": future_dates,
+            "predicted_values": predictions.tolist(),
+            "confidence_upper": confidence_upper.tolist(),
+            "confidence_lower": confidence_lower.tolist(),
+            "trend": "📈 Hausse" if slope > 0.01 else ("📉 Baisse" if slope < -0.01 else "➡️ Stable"),
+            "slope": round(slope, 4)
+        }
 
 
     # ============================================================
