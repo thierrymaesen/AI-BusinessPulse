@@ -1,25 +1,25 @@
 """
-============================================================
- AI-BusinessPulse - Plateforme d'Intelligence de Réputation
- ============================================================
-  Auteur  : Thierry Maesen
-   Version : 1.0.0
+    ============================================================
+    AI-BusinessPulse - Plateforme d'Intelligence de Réputation
+    ============================================================
+    Auteur  : Thierry Maesen
+    Version : 1.0.0
     Licence : MIT
 
-      Description :
-       Plateforme IA qui analyse les avis clients en temps réel,
-        détecte les émotions, génère des réponses automatiques,
-         compare la réputation avec les concurrents et prédit les
-          tendances futures de satisfaction client.
+    Description :
+    Plateforme IA qui analyse les avis clients en temps réel,
+    détecte les émotions, génère des réponses automatiques,
+    compare la réputation avec les concurrents et prédit les
+    tendances futures de satisfaction client.
 
-            5 Fonctionnalités Originales :
-             1. Multi-Source Review Aggregator (Agrégateur Multi-Sources)
-              2. Deep Sentiment & Emotion AI (Analyse Profonde des Émotions)
-               3. Smart Auto-Response Generator (Générateur de Réponses IA)
-                4. Competitive Reputation Radar (Radar Concurrentiel)
-                 5. Predictive Reputation Forecasting (Prédiction de Tendances)
-                 ============================================================
-                 """
+    5 Fonctionnalités Originales :
+    1. Multi-Source Review Aggregator (Agrégateur Multi-Sources)
+    2. Deep Sentiment & Emotion AI (Analyse Profonde des Émotions)
+    3. Smart Auto-Response Generator (Générateur de Réponses IA)
+    4. Competitive Reputation Radar (Radar Concurrentiel)
+    5. Predictive Reputation Forecasting (Prédiction de Tendances)
+    ============================================================
+"""
 
 # ============================================================
 # IMPORTS - Bibliothèques nécessaires
@@ -40,69 +40,69 @@ import re                       # Expressions régulières
 # CONFIGURATION STREAMLIT - Paramètres de la page
 # ============================================================
 st.set_page_config(
-        page_title="AI-BusinessPulse | Intelligence de Réputation",
-        page_icon="🧠",
-        layout="wide",                    # Utilise toute la largeur
-        initial_sidebar_state="expanded"  # Barre latérale ouverte
+page_title="AI-BusinessPulse | Intelligence de Réputation",
+page_icon="🧠",
+layout="wide",                    # Utilise toute la largeur
+initial_sidebar_state="expanded"  # Barre latérale ouverte
 )
 
 # ============================================================
 # CONSTANTES & CONFIGURATION GLOBALE
 # ============================================================
 # Liste des émotions détectables par notre IA
-EMOTIONS = ["😊 Joie", "😠 Colère", "😢 Tristesse", "😨 Peur", 
-                        "🤢 Dégoût", "😲 Surprise", "🤔 Neutre"]
+EMOTIONS = ["😊 Joie", "😠 Colère", "😢 Tristesse", "😨 Peur",
+"🤢 Dégoût", "😲 Surprise", "🤔 Neutre"]
 
 # Couleurs associées à chaque émotion pour les graphiques
 EMOTION_COLORS = {
-        "😊 Joie": "#2ecc71", "😠 Colère": "#e74c3c", 
-        "😢 Tristesse": "#3498db", "😨 Peur": "#9b59b6",
-        "🤢 Dégoût": "#f39c12", "😲 Surprise": "#1abc9c", 
-        "🤔 Neutre": "#95a5a6"
+"😊 Joie": "#2ecc71", "😠 Colère": "#e74c3c",
+"😢 Tristesse": "#3498db", "😨 Peur": "#9b59b6",
+"🤢 Dégoût": "#f39c12", "😲 Surprise": "#1abc9c",
+"🤔 Neutre": "#95a5a6"
 }
 
 # Sources simulées d'avis clients
-REVIEW_SOURCES = ["Google Reviews", "Trustpilot", "Facebook", 
-                                    "Yelp", "TripAdvisor"]
+REVIEW_SOURCES = ["Google Reviews", "Trustpilot", "Facebook",
+"Yelp", "TripAdvisor"]
 
 # Catégories d'entreprises
 BUSINESS_CATEGORIES = [
-        "Restaurant", "Hôtel", "E-commerce", "SaaS / Tech",
-        "Agence Marketing", "Cabinet Médical", "Salon de Coiffure"
+"Restaurant", "Hôtel", "E-commerce", "SaaS / Tech",
+"Agence Marketing", "Cabinet Médical", "Salon de Coiffure"
 ]
 
 # ============================================================
 # CLASSE PRINCIPALE : BusinessPulseEngine
 # ============================================================
 # Cette classe contient toute la logique métier de l'application.
-# Elle gère la génération de données de démo, l'analyse de 
+# Elle gère la génération de données de démo, l'analyse de
 # sentiment, la détection d'émotions, et les prédictions.
 # ============================================================
 
 class BusinessPulseEngine:
-        """
-            Moteur principal d'AI-BusinessPulse.
+    """
+        Moteur principal d'AI-BusinessPulse.
 
-                    Cette classe orchestre les 5 fonctionnalités principales :
-                        - Agrégation multi-sources des avis
-                            - Analyse de sentiment et détection d'émotions
-                                - Génération automatique de réponses
-                                    - Benchmark concurrentiel
-                                        - Prédiction de tendances de réputation
-                                            """
+        Cette classe orchestre les 5 fonctionnalités principales :
+        - Agrégation multi-sources des avis
+        - Analyse de sentiment et détection d'émotions
+        - Génération automatique de réponses
+        - Benchmark concurrentiel
+        - Prédiction de tendances de réputation
+    """
 
     def __init__(self, business_name="Mon Entreprise", category="Restaurant"):
-                """
-                        Initialise le moteur avec le nom et la catégorie de l'entreprise.
+        """
+            Initialise le moteur avec le nom et la catégorie de l'entreprise.
 
-                                        Args:
-                                                    business_name (str): Nom de l'entreprise à analyser
-                                                                category (str): Catégorie d'activité de l'entreprise
-                                                                        """
-                self.business_name = business_name
-                self.category = category
-                # Génère automatiquement des données de démonstration
-                self.reviews = self._generate_demo_reviews()
+            Args:
+            business_name (str): Nom de l'entreprise à analyser
+            category (str): Catégorie d'activité de l'entreprise
+        """
+        self.business_name = business_name
+        self.category = category
+        # Génère automatiquement des données de démonstration
+        self.reviews = self._generate_demo_reviews()
         # Noms de concurrents générés selon la catégorie
         self.competitors = self._generate_competitors()
 
@@ -115,114 +115,114 @@ class BusinessPulseEngine:
     # --------------------------------------------------------
 
     def _generate_demo_reviews(self):
-                """
-                        Génère un jeu de données réaliste de 200 avis clients.
+        """
+            Génère un jeu de données réaliste de 200 avis clients.
 
-                                        Chaque avis contient :
-                                                - Le texte de l'avis (en français, réaliste)
-                                                        - La source (plateforme d'origine)
-                                                                - La note (1-5 étoiles)
-                                                                        - La date de publication
-                                                                                - Le nom du client
+            Chaque avis contient :
+            - Le texte de l'avis (en français, réaliste)
+            - La source (plateforme d'origine)
+            - La note (1-5 étoiles)
+            - La date de publication
+            - Le nom du client
 
-                                                                                                Returns:
-                                                                                                            pd.DataFrame: DataFrame contenant tous les avis générés
-                                                                                                                    """
-                # Banque d'avis positifs réalistes en français
-                positive_reviews = [
-                                "Service impeccable ! L'équipe est très professionnelle et à l'écoute.",
-                                "Excellent rapport qualité-prix, je recommande vivement à tous.",
-                                "Expérience fantastique du début à la fin, bravo à toute l'équipe !",
-                                "Je suis client depuis 3 ans et la qualité ne faiblit jamais.",
-                                "Réponse rapide et solution efficace à mon problème. Top !",
-                                "Un accueil chaleureux et un service personnalisé. Parfait !",
-                                "Largement au-dessus de la concurrence en termes de qualité.",
-                                "Très satisfait, c'est rare de trouver un tel niveau de service.",
-                                "Innovation constante et écoute du client, c'est ce qui fait la différence.",
-                                "Je recommande les yeux fermés, une entreprise d'exception !",
-                                "Livraison rapide et produit conforme à la description. Très bien.",
-                                "L'interface est intuitive et le support client réactif.",
-                                "Qualité irréprochable, je suis un client fidèle désormais.",
-                                "Service après-vente exceptionnel, problème résolu en 24h.",
-                                "Ambiance agréable et personnel souriant. On reviendra !"
-                ]
+            Returns:
+            pd.DataFrame: DataFrame contenant tous les avis générés
+        """
+        # Banque d'avis positifs réalistes en français
+        positive_reviews = [
+            "Service impeccable ! L'équipe est très professionnelle et à l'écoute.",
+            "Excellent rapport qualité-prix, je recommande vivement à tous.",
+            "Expérience fantastique du début à la fin, bravo à toute l'équipe !",
+            "Je suis client depuis 3 ans et la qualité ne faiblit jamais.",
+            "Réponse rapide et solution efficace à mon problème. Top !",
+            "Un accueil chaleureux et un service personnalisé. Parfait !",
+            "Largement au-dessus de la concurrence en termes de qualité.",
+            "Très satisfait, c'est rare de trouver un tel niveau de service.",
+            "Innovation constante et écoute du client, c'est ce qui fait la différence.",
+            "Je recommande les yeux fermés, une entreprise d'exception !",
+            "Livraison rapide et produit conforme à la description. Très bien.",
+            "L'interface est intuitive et le support client réactif.",
+            "Qualité irréprochable, je suis un client fidèle désormais.",
+            "Service après-vente exceptionnel, problème résolu en 24h.",
+            "Ambiance agréable et personnel souriant. On reviendra !"
+        ]
 
         # Banque d'avis négatifs réalistes en français
         negative_reviews = [
-                        "Très déçu du service, temps d'attente beaucoup trop long.",
-                        "Qualité en baisse depuis quelques mois, c'est vraiment dommage.",
-                        "Service client inexistant, impossible de joindre quelqu'un.",
-                        "Le produit ne correspond pas du tout à la description. Déception.",
-                        "Prix trop élevés pour la qualité proposée. Je ne reviendrai pas.",
-                        "Expérience catastrophique, aucun suivi après l'achat.",
-                        "Erreur de commande non résolue après 3 relances. Inadmissible.",
-                        "Personnel désagréable et peu professionnel. À éviter.",
-                        "Problème récurrent jamais résolu malgré mes signalements.",
-                        "Rapport qualité-prix catastrophique, je suis très mécontent."
+            "Très déçu du service, temps d'attente beaucoup trop long.",
+            "Qualité en baisse depuis quelques mois, c'est vraiment dommage.",
+            "Service client inexistant, impossible de joindre quelqu'un.",
+            "Le produit ne correspond pas du tout à la description. Déception.",
+            "Prix trop élevés pour la qualité proposée. Je ne reviendrai pas.",
+            "Expérience catastrophique, aucun suivi après l'achat.",
+            "Erreur de commande non résolue après 3 relances. Inadmissible.",
+            "Personnel désagréable et peu professionnel. À éviter.",
+            "Problème récurrent jamais résolu malgré mes signalements.",
+            "Rapport qualité-prix catastrophique, je suis très mécontent."
         ]
 
         # Banque d'avis neutres/mitigés
         neutral_reviews = [
-                        "Correct sans plus, rien d'exceptionnel mais pas mal non plus.",
-                        "Service moyen, il y a du potentiel mais aussi des points à améliorer.",
-                        "Première visite, impression mitigée. Je reviendrai pour confirmer.",
-                        "Bon produit mais livraison un peu lente. Peut mieux faire.",
-                        "Globalement satisfait mais quelques détails à revoir."
+            "Correct sans plus, rien d'exceptionnel mais pas mal non plus.",
+            "Service moyen, il y a du potentiel mais aussi des points à améliorer.",
+            "Première visite, impression mitigée. Je reviendrai pour confirmer.",
+            "Bon produit mais livraison un peu lente. Peut mieux faire.",
+            "Globalement satisfait mais quelques détails à revoir."
         ]
 
         # Prénoms réalistes pour les clients fictifs
         first_names = ["Marie", "Jean", "Sophie", "Pierre", "Isabelle",
-                                              "Thomas", "Nathalie", "François", "Julie", "Laurent",
-                                              "Céline", "Nicolas", "Émilie", "David", "Claire",
-                                              "Marc", "Aurélie", "Philippe", "Camille", "Antoine"]
+            "Thomas", "Nathalie", "François", "Julie", "Laurent",
+            "Céline", "Nicolas", "Émilie", "David", "Claire",
+            "Marc", "Aurélie", "Philippe", "Camille", "Antoine"]
 
         reviews_data = []  # Liste pour stocker tous les avis
 
         # Génère 200 avis avec une distribution réaliste
         for i in range(200):
-                        # Choix pondéré : 55% positif, 25% négatif, 20% neutre
-                        sentiment_roll = random.random()
-                        if sentiment_roll < 0.55:
-                                            text = random.choice(positive_reviews)
-                                            rating = random.choice([4, 5])      # Note 4-5 étoiles
-elif sentiment_roll < 0.80:
+            # Choix pondéré : 55% positif, 25% négatif, 20% neutre
+            sentiment_roll = random.random()
+            if sentiment_roll < 0.55:
+                text = random.choice(positive_reviews)
+                rating = random.choice([4, 5])      # Note 4-5 étoiles
+            elif sentiment_roll < 0.80:
                 text = random.choice(negative_reviews)
                 rating = random.choice([1, 2])      # Note 1-2 étoiles
-else:
+            else:
                 text = random.choice(neutral_reviews)
-                    rating = 3                           # Note 3 étoiles
+                rating = 3                           # Note 3 étoiles
 
             # Génère une date aléatoire sur les 12 derniers mois
             days_ago = random.randint(0, 365)
             review_date = datetime.now() - timedelta(days=days_ago)
 
             reviews_data.append({
-                                "client": random.choice(first_names),
-                                "text": text,
-                                "rating": rating,
-                                "source": random.choice(REVIEW_SOURCES),
-                                "date": review_date.strftime("%Y-%m-%d"),
-                                "emotion": None  # Sera rempli par l'analyse IA
+                "client": random.choice(first_names),
+                "text": text,
+                "rating": rating,
+                "source": random.choice(REVIEW_SOURCES),
+                "date": review_date.strftime("%Y-%m-%d"),
+                "emotion": None  # Sera rempli par l'analyse IA
             })
 
         return pd.DataFrame(reviews_data)
 
     def _generate_competitors(self):
-                """
-                        Génère une liste de concurrents fictifs selon la catégorie.
+        """
+            Génère une liste de concurrents fictifs selon la catégorie.
 
-                                        Returns:
-                                                    list: Liste de noms de concurrents fictifs
-                                                            """
+            Returns:
+            list: Liste de noms de concurrents fictifs
+        """
         # Dictionnaire de concurrents par catégorie d'entreprise
         competitors_db = {
-                        "Restaurant": ["Le Bistrot Parisien", "La Table Dorée", "Chez Marcel"],
-                        "Hôtel": ["Grand Hôtel Royal", "Suite & Spa Prestige", "L'Étoile Palace"],
-                        "E-commerce": ["ShopExpress", "MegaStore Online", "QuickBuy Pro"],
-                        "SaaS / Tech": ["CloudFlow", "DataSync Pro", "SmartPlatform"],
-                        "Agence Marketing": ["DigitalBoost", "CreativeMinds", "GrowthFactory"],
-                        "Cabinet Médical": ["MédiCenter Plus", "SantéPro Clinic", "VitaCare"],
-                        "Salon de Coiffure": ["StyleMaster", "BeautyHair Pro", "CoiffÉlégance"]
+            "Restaurant": ["Le Bistrot Parisien", "La Table Dorée", "Chez Marcel"],
+            "Hôtel": ["Grand Hôtel Royal", "Suite & Spa Prestige", "L'Étoile Palace"],
+            "E-commerce": ["ShopExpress", "MegaStore Online", "QuickBuy Pro"],
+            "SaaS / Tech": ["CloudFlow", "DataSync Pro", "SmartPlatform"],
+            "Agence Marketing": ["DigitalBoost", "CreativeMinds", "GrowthFactory"],
+            "Cabinet Médical": ["MédiCenter Plus", "SantéPro Clinic", "VitaCare"],
+            "Salon de Coiffure": ["StyleMaster", "BeautyHair Pro", "CoiffÉlégance"]
         }
         return competitors_db.get(self.category, ["Concurrent A", "Concurrent B", "Concurrent C"])
 
@@ -234,18 +234,18 @@ else:
     # --------------------------------------------------------
 
     def analyze_sentiment(self, text):
-                """
-                        Analyse le sentiment d'un texte avec TextBlob.
+        """
+            Analyse le sentiment d'un texte avec TextBlob.
 
-                                        TextBlob attribue un score de polarité entre -1 (très négatif)
-                                                et +1 (très positif). On convertit ce score en catégorie.
+            TextBlob attribue un score de polarité entre -1 (très négatif)
+            et +1 (très positif). On convertit ce score en catégorie.
 
-                                                                Args:
-                                                                            text (str): Texte de l'avis à analyser
+            Args:
+            text (str): Texte de l'avis à analyser
 
-                                                                                                Returns:
-                                                                                                            dict: Dictionnaire contenant polarité, subjectivité et label
-                                                                                                                    """
+            Returns:
+            dict: Dictionnaire contenant polarité, subjectivité et label
+        """
         # Analyse avec TextBlob (fonctionne mieux en anglais,
         # mais donne des résultats utilisables en français)
         analysis = TextBlob(text)
@@ -254,84 +254,84 @@ else:
 
         # Classification en catégorie de sentiment
         if polarity > 0.3:
-                        label = "🟢 Positif"
-elif polarity > 0.05:
+            label = "🟢 Positif"
+        elif polarity > 0.05:
             label = "🟡 Légèrement Positif"
-elif polarity > -0.05:
+        elif polarity > -0.05:
             label = "⚪ Neutre"
-elif polarity > -0.3:
+        elif polarity > -0.3:
             label = "🟠 Légèrement Négatif"
-else:
+        else:
             label = "🔴 Négatif"
 
         return {
-                        "polarity": round(polarity, 3),
-                        "subjectivity": round(subjectivity, 3),
-                        "label": label
+            "polarity": round(polarity, 3),
+            "subjectivity": round(subjectivity, 3),
+            "label": label
         }
 
     def detect_emotion(self, text, rating):
-                """
-                        Détecte l'émotion dominante dans un avis client.
+        """
+            Détecte l'émotion dominante dans un avis client.
 
-                                        Combine l'analyse du texte (mots-clés émotionnels) avec
-                                                la note attribuée pour une détection plus précise.
+            Combine l'analyse du texte (mots-clés émotionnels) avec
+            la note attribuée pour une détection plus précise.
 
-                                                                Args:
-                                                                            text (str): Texte de l'avis
-                                                                                        rating (int): Note de 1 à 5 étoiles
-                                                                                                    
-                                                                                                            Returns:
-                                                                                                                        str: Émotion détectée (avec emoji)
-                                                                                                                                """
+            Args:
+            text (str): Texte de l'avis
+            rating (int): Note de 1 à 5 étoiles
+
+            Returns:
+            str: Émotion détectée (avec emoji)
+        """
         text_lower = text.lower()
 
         # Dictionnaire de mots-clés associés à chaque émotion
         emotion_keywords = {
-                        "😊 Joie": ["excellent", "fantastique", "bravo", "parfait", 
-                                                           "recommande", "exception", "top", "merci", "super"],
-                        "😠 Colère": ["inadmissible", "catastrophique", "inacceptable",
-                                                              "scandaleux", "honteux", "furieux", "révolté"],
-                        "😢 Tristesse": ["déçu", "dommage", "triste", "regret", 
-                                                                    "malheureusement", "déception", "décevant"],
-                        "😨 Peur": ["inquiet", "peur", "angoisse", "danger", 
-                                                          "risque", "méfiance", "crainte"],
-                        "🤢 Dégoût": ["horrible", "dégueulasse", "immonde", 
-                                                              "dégoûté", "répugnant", "éviter"],
-                        "😲 Surprise": ["surprise", "inattendu", "étonnant", 
-                                                                  "incroyable", "impressionnant", "wow"]
+            "😊 Joie": ["excellent", "fantastique", "bravo", "parfait",
+                "recommande", "exception", "top", "merci", "super"],
+            "😠 Colère": ["inadmissible", "catastrophique", "inacceptable",
+                "scandaleux", "honteux", "furieux", "révolté"],
+            "😢 Tristesse": ["déçu", "dommage", "triste", "regret",
+                "malheureusement", "déception", "décevant"],
+            "😨 Peur": ["inquiet", "peur", "angoisse", "danger",
+                "risque", "méfiance", "crainte"],
+            "🤢 Dégoût": ["horrible", "dégueulasse", "immonde",
+                "dégoûté", "répugnant", "éviter"],
+            "😲 Surprise": ["surprise", "inattendu", "étonnant",
+                "incroyable", "impressionnant", "wow"]
         }
 
         # Score d'émotion basé sur les mots-clés trouvés
         emotion_scores = {}
         for emotion, keywords in emotion_keywords.items():
-                        score = sum(1 for kw in keywords if kw in text_lower)
-                        emotion_scores[emotion] = score
+            score = sum(1 for kw in keywords if kw in text_lower)
+            emotion_scores[emotion] = score
 
         # Vérifie si une émotion a été détectée par mots-clés
         max_emotion = max(emotion_scores, key=emotion_scores.get)
         if emotion_scores[max_emotion] > 0:
-                        return max_emotion
+            return max_emotion
 
         # Si aucun mot-clé trouvé, se base sur la note
         if rating >= 4:
-                        return "😊 Joie"
-elif rating <= 2:
+            return "😊 Joie"
+        elif rating <= 2:
             return random.choice(["😠 Colère", "😢 Tristesse"])
-else:
+        else:
             return "🤔 Neutre"
 
     def analyze_all_reviews(self):
-                """
-                        Lance l'analyse de sentiment et la détection d'émotions
-                                sur TOUS les avis du dataset.
+        """
+            Lance l'analyse de sentiment et la détection d'émotions
+            sur TOUS les avis du dataset.
 
-                                                Enrichit le DataFrame self.reviews avec de nouvelles colonnes :
-                                                        - sentiment_polarity : score de polarité (-1 à +1)
-                                                                - sentiment_label : label de sentiment (Positif/Négatif/Neutre)
-                                                                        - subjectivity : score de subjectivité (0 à 1)
-                                                                                - emotion : émotion dominante détectée
-                                                                                        """
+            Enrichit le DataFrame self.reviews avec de nouvelles colonnes :
+            - sentiment_polarity : score de polarité (-1 à +1)
+            - sentiment_label : label de sentiment (Positif/Négatif/Neutre)
+            - subjectivity : score de subjectivité (0 à 1)
+            - emotion : émotion dominante détectée
+        """
         # Applique l'analyse de sentiment à chaque avis
         sentiments = self.reviews["text"].apply(self.analyze_sentiment)
         self.reviews["sentiment_polarity"] = sentiments.apply(lambda x: x["polarity"])
@@ -340,7 +340,7 @@ else:
 
         # Détecte l'émotion pour chaque avis
         self.reviews["emotion"] = self.reviews.apply(
-                        lambda row: self.detect_emotion(row["text"], row["rating"]), axis=1
+            lambda row: self.detect_emotion(row["text"], row["rating"]), axis=1
         )
 
     # --------------------------------------------------------
@@ -351,78 +351,78 @@ else:
     # --------------------------------------------------------
 
     def generate_smart_response(self, review_text, sentiment_label, client_name):
-                """
-                        Génère une réponse professionnelle adaptée au sentiment de l'avis.
+        """
+            Génère une réponse professionnelle adaptée au sentiment de l'avis.
 
-                                        Le système adapte le ton, le contenu et la structure de la réponse
-                                                en fonction du sentiment détecté :
-                                                        - Positif : remerciement + fidélisation
-                                                                - Négatif : empathie + solution + compensation
-                                                                        - Neutre  : reconnaissance + amélioration
+            Le système adapte le ton, le contenu et la structure de la réponse
+            en fonction du sentiment détecté :
+            - Positif : remerciement + fidélisation
+            - Négatif : empathie + solution + compensation
+            - Neutre  : reconnaissance + amélioration
 
-                                                                                        Args:
-                                                                                                    review_text (str): Texte original de l'avis client
-                                                                                                                sentiment_label (str): Label de sentiment détecté
-                                                                                                                            client_name (str): Prénom du client
-                                                                                                                                        
-                                                                                                                                                Returns:
-                                                                                                                                                            str: Réponse professionnelle générée par l'IA
-                                                                                                                                                                    """
+            Args:
+            review_text (str): Texte original de l'avis client
+            sentiment_label (str): Label de sentiment détecté
+            client_name (str): Prénom du client
+
+            Returns:
+            str: Réponse professionnelle générée par l'IA
+        """
         # Templates de réponses pour avis POSITIFS
         positive_templates = [
-                        f"Cher(e) {client_name}, merci infiniment pour votre retour enthousiaste ! "
-                        f"Votre satisfaction est notre plus belle récompense. Toute l'équipe de "
-                        f"{self.business_name} est ravie de savoir que vous avez apprécié notre service. "
-                        f"Au plaisir de vous revoir très bientôt ! 🌟",
+            f"Cher(e) {client_name}, merci infiniment pour votre retour enthousiaste ! "
+            f"Votre satisfaction est notre plus belle récompense. Toute l'équipe de "
+            f"{self.business_name} est ravie de savoir que vous avez apprécié notre service. "
+            f"Au plaisir de vous revoir très bientôt ! 🌟",
 
-                        f"Bonjour {client_name}, quel plaisir de lire votre avis ! "
-                        f"Chez {self.business_name}, nous mettons tout en oeuvre pour offrir "
-                        f"la meilleure expérience possible. Votre fidélité nous honore. "
-                        f"À très bientôt ! 💫",
+            f"Bonjour {client_name}, quel plaisir de lire votre avis ! "
+            f"Chez {self.business_name}, nous mettons tout en oeuvre pour offrir "
+            f"la meilleure expérience possible. Votre fidélité nous honore. "
+            f"À très bientôt ! 💫",
 
-                        f"Merci beaucoup {client_name} ! Votre retour positif motive toute "
-                        f"notre équipe à continuer d'innover et d'exceller. "
-                        f"Nous avons hâte de vous accueillir à nouveau chez {self.business_name} ! 🙏"
+            f"Merci beaucoup {client_name} ! Votre retour positif motive toute "
+            f"notre équipe à continuer d'innover et d'exceller. "
+            f"Nous avons hâte de vous accueillir à nouveau chez {self.business_name} ! 🙏"
         ]
 
         # Templates de réponses pour avis NÉGATIFS
         negative_templates = [
-                        f"Cher(e) {client_name}, nous sommes sincèrement désolés pour cette "
-                        f"expérience décevante. Ce n'est pas le standard de qualité que nous "
-                        f"visons chez {self.business_name}. Nous souhaitons comprendre ce qui "
-                        f"s'est passé et y remédier. Pourriez-vous nous contacter directement "
-                        f"à support@{self.business_name.lower().replace(' ', '')}.com ? "
-                        f"Nous vous offrirons une compensation adaptée. 🤝",
+            f"Cher(e) {client_name}, nous sommes sincèrement désolés pour cette "
+            f"expérience décevante. Ce n'est pas le standard de qualité que nous "
+            f"visons chez {self.business_name}. Nous souhaitons comprendre ce qui "
+            f"s'est passé et y remédier. Pourriez-vous nous contacter directement "
+            f"à support@{self.business_name.lower().replace(' ', '')}.com ? "
+            f"Nous vous offrirons une compensation adaptée. 🤝",
 
-                        f"Bonjour {client_name}, merci d'avoir pris le temps de partager votre "
-                        f"expérience. Nous prenons votre retour très au sérieux. Notre responsable "
-                        f"qualité va étudier votre cas personnellement. Nous nous engageons à "
-                        f"faire mieux et espérons regagner votre confiance. 💪",
+            f"Bonjour {client_name}, merci d'avoir pris le temps de partager votre "
+            f"expérience. Nous prenons votre retour très au sérieux. Notre responsable "
+            f"qualité va étudier votre cas personnellement. Nous nous engageons à "
+            f"faire mieux et espérons regagner votre confiance. 💪",
 
-                        f"{client_name}, nous comprenons votre frustration et nous vous présentons "
-                        f"nos excuses les plus sincères. Votre avis est crucial pour nous améliorer. "
-                        f"Notre équipe travaille déjà sur les points que vous avez soulevés. "
-                        f"Nous serions honorés de vous offrir une seconde chance. 🙏"
+            f"{client_name}, nous comprenons votre frustration et nous vous présentons "
+            f"nos excuses les plus sincères. Votre avis est crucial pour nous améliorer. "
+            f"Notre équipe travaille déjà sur les points que vous avez soulevés. "
+            f"Nous serions honorés de vous offrir une seconde chance. 🙏"
         ]
 
         # Templates de réponses pour avis NEUTRES
         neutral_templates = [
-                        f"Bonjour {client_name}, merci pour votre retour honnête. "
-                        f"Nous apprécions votre franchise et prenons note de vos observations. "
-                        f"Chez {self.business_name}, chaque avis est une opportunité d'amélioration. "
-                        f"Nous espérons vous surprendre positivement lors de votre prochaine visite ! 😊",
+            f"Bonjour {client_name}, merci pour votre retour honnête. "
+            f"Nous apprécions votre franchise et prenons note de vos observations. "
+            f"Chez {self.business_name}, chaque avis est une opportunité d'amélioration. "
+            f"Nous espérons vous surprendre positivement lors de votre prochaine visite ! 😊",
 
-                        f"Merci {client_name} pour ce retour constructif. Nous travaillons "
-                        f"constamment à améliorer notre service. Vos suggestions sont précieuses "
-                        f"et seront prises en compte. À bientôt chez {self.business_name} ! 🔄"
+            f"Merci {client_name} pour ce retour constructif. Nous travaillons "
+            f"constamment à améliorer notre service. Vos suggestions sont précieuses "
+            f"et seront prises en compte. À bientôt chez {self.business_name} ! 🔄"
         ]
 
         # Sélection du template selon le sentiment
         if "Positif" in sentiment_label:
-                        return random.choice(positive_templates)
-elif "Négatif" in sentiment_label:
+            return random.choice(positive_templates)
+        elif "Négatif" in sentiment_label:
             return random.choice(negative_templates)
-else:
+        else:
             return random.choice(neutral_templates)
 
     # --------------------------------------------------------
@@ -433,23 +433,23 @@ else:
     # --------------------------------------------------------
 
     def generate_competitive_benchmark(self):
-                """
-                        Génère un benchmark comparatif avec les concurrents.
+        """
+            Génère un benchmark comparatif avec les concurrents.
 
-                                        Évalue 6 axes stratégiques :
-                                                - Satisfaction globale
-                                                        - Réactivité du service
-                                                                - Rapport qualité-prix
-                                                                        - Fidélité client
-                                                                                - Présence en ligne
-                                                                                        - Innovation
+            Évalue 6 axes stratégiques :
+            - Satisfaction globale
+            - Réactivité du service
+            - Rapport qualité-prix
+            - Fidélité client
+            - Présence en ligne
+            - Innovation
 
-                                                                                                        Returns:
-                                                                                                                    dict: Scores par entreprise et par axe d'évaluation
-                                                                                                                            """
+            Returns:
+            dict: Scores par entreprise et par axe d'évaluation
+        """
         # Les 6 axes d'évaluation stratégique
-        axes = ["Satisfaction", "Réactivité", "Qualité-Prix", 
-                                "Fidélité", "Présence Online", "Innovation"]
+        axes = ["Satisfaction", "Réactivité", "Qualité-Prix",
+            "Fidélité", "Présence Online", "Innovation"]
 
         benchmark_data = {}
 
@@ -460,16 +460,16 @@ else:
 
         # Génère les scores de l'entreprise avec une variation réaliste
         benchmark_data[self.business_name] = [
-                        min(100, max(20, base_score + random.uniform(-10, 15)))
-                        for _ in axes
+            min(100, max(20, base_score + random.uniform(-10, 15)))
+            for _ in axes
         ]
 
         # Génère les scores des concurrents (légèrement inférieurs)
         for competitor in self.competitors:
-                        benchmark_data[competitor] = [
-                                            min(100, max(20, base_score + random.uniform(-25, 10)))
-                                            for _ in axes
-                        ]
+            benchmark_data[competitor] = [
+                min(100, max(20, base_score + random.uniform(-25, 10)))
+                for _ in axes
+            ]
 
         return {"axes": axes, "data": benchmark_data}
 
@@ -481,24 +481,24 @@ else:
     # --------------------------------------------------------
 
     def predict_reputation_trend(self, months_ahead=6):
-                """
-                        Prédit l'évolution de la réputation sur les prochains mois.
+        """
+            Prédit l'évolution de la réputation sur les prochains mois.
 
-                                        Utilise une régression linéaire simple sur les données 
-                                                historiques pour projeter la tendance future.
+            Utilise une régression linéaire simple sur les données
+            historiques pour projeter la tendance future.
 
-                                                                Algorithme :
-                                                                        1. Calcule la moyenne mensuelle des notes passées
-                                                                                2. Applique une régression linéaire
-                                                                                        3. Projette la tendance sur N mois
-                                                                                                4. Ajoute un intervalle de confiance
-                                                                                                        
-                                                                                                                Args:
-                                                                                                                            months_ahead (int): Nombre de mois à prédire (défaut: 6)
-                                                                                                                                        
-                                                                                                                                                Returns:
-                                                                                                                                                            dict: Données historiques et prédictions avec intervalles
-                                                                                                                                                                    """
+            Algorithme :
+            1. Calcule la moyenne mensuelle des notes passées
+            2. Applique une régression linéaire
+            3. Projette la tendance sur N mois
+            4. Ajoute un intervalle de confiance
+
+            Args:
+            months_ahead (int): Nombre de mois à prédire (défaut: 6)
+
+            Returns:
+            dict: Données historiques et prédictions avec intervalles
+        """
         # Conversion de la colonne date en format datetime
         self.reviews["date_dt"] = pd.to_datetime(self.reviews["date"])
 
@@ -512,50 +512,50 @@ else:
 
         # Régression linéaire simple (y = ax + b)
         if len(x_values) > 1:
-                        coefficients = np.polyfit(x_values, y_values, 1)  # Degré 1
-            slope = coefficients[0]      # Pente de la tendance
-            intercept = coefficients[1]  # Ordonnée à l'origine
-else:
-            slope = 0
-            intercept = y_values[0] if len(y_values) > 0 else 3.5
+            coefficients = np.polyfit(x_values, y_values, 1)  # Degré 1
+        slope = coefficients[0]      # Pente de la tendance
+        intercept = coefficients[1]  # Ordonnée à l'origine
+    else:
+        slope = 0
+        intercept = y_values[0] if len(y_values) > 0 else 3.5
 
-        # Génération des prédictions futures
-        future_x = np.arange(len(monthly), len(monthly) + months_ahead)
-        predictions = slope * future_x + intercept
+    # Génération des prédictions futures
+    future_x = np.arange(len(monthly), len(monthly) + months_ahead)
+    predictions = slope * future_x + intercept
 
-        # Bornage des prédictions entre 1 et 5
-        predictions = np.clip(predictions, 1.0, 5.0)
+    # Bornage des prédictions entre 1 et 5
+    predictions = np.clip(predictions, 1.0, 5.0)
 
-        # Calcul de l'intervalle de confiance (± écart-type)
-        std_dev = np.std(y_values) if len(y_values) > 1 else 0.3
-        confidence_upper = np.clip(predictions + std_dev, 1.0, 5.0)
-        confidence_lower = np.clip(predictions - std_dev, 1.0, 5.0)
+    # Calcul de l'intervalle de confiance (± écart-type)
+    std_dev = np.std(y_values) if len(y_values) > 1 else 0.3
+    confidence_upper = np.clip(predictions + std_dev, 1.0, 5.0)
+    confidence_lower = np.clip(predictions - std_dev, 1.0, 5.0)
 
-        # Génération des dates futures
-        last_date = monthly.index[-1] if len(monthly) > 0 else datetime.now()
-        future_dates = [
-                        last_date + timedelta(days=30 * (i + 1)) 
-                        for i in range(months_ahead)
-        ]
+    # Génération des dates futures
+    last_date = monthly.index[-1] if len(monthly) > 0 else datetime.now()
+    future_dates = [
+        last_date + timedelta(days=30 * (i + 1))
+        for i in range(months_ahead)
+    ]
 
         return {
-                        "historical_dates": monthly.index.tolist(),
-                        "historical_values": y_values.tolist(),
-                        "predicted_dates": future_dates,
-                        "predicted_values": predictions.tolist(),
-                        "confidence_upper": confidence_upper.tolist(),
-                        "confidence_lower": confidence_lower.tolist(),
-                        "trend": "📈 Hausse" if slope > 0.01 else ("📉 Baisse" if slope < -0.01 else "➡️ Stable"),
-                        "slope": round(slope, 4)
-        }
+        "historical_dates": monthly.index.tolist(),
+        "historical_values": y_values.tolist(),
+        "predicted_dates": future_dates,
+        "predicted_values": predictions.tolist(),
+        "confidence_upper": confidence_upper.tolist(),
+        "confidence_lower": confidence_lower.tolist(),
+        "trend": "📈 Hausse" if slope > 0.01 else ("📉 Baisse" if slope < -0.01 else "➡️ Stable"),
+        "slope": round(slope, 4)
+    }
 
 
-# ============================================================
-# INTERFACE STREAMLIT - Affichage et Interaction
-# ============================================================
-# Cette section construit l'interface utilisateur avec Streamlit.
-# Chaque onglet correspond à une fonctionnalité du projet.
-# ============================================================
+    # ============================================================
+    # INTERFACE STREAMLIT - Affichage et Interaction
+    # ============================================================
+    # Cette section construit l'interface utilisateur avec Streamlit.
+    # Chaque onglet correspond à une fonctionnalité du projet.
+    # ============================================================
 
 def main():
         """
@@ -968,7 +968,7 @@ def main():
                                                             - 🎯 Lancer une enquête de satisfaction auprès de vos clients fidèles
                                                                         - 🔧 Mettre en place un plan d'action qualité immédiat
                                                                                     """)
-elif predictions["slope"] > 0.01:
+    elif predictions["slope"] > 0.01:
             st.success("🎉 **Excellente nouvelle : Tendance à la hausse !**")
             st.markdown("""
                         **Conseils pour maintenir la dynamique :**
@@ -977,7 +977,7 @@ elif predictions["slope"] > 0.01:
                                                             - 🚀 Investissez dans l'innovation pour creuser l'écart avec la concurrence
                                                                         - 📱 Renforcez votre présence sur les plateformes d'avis
                                                                                     """)
-else:
+    else:
             st.info("➡️ **Réputation stable - Opportunité de croissance**")
             st.markdown("""
                         **Suggestions pour passer au niveau supérieur :**
