@@ -31,275 +31,273 @@
 Les entreprises reçoivent des **centaines d'avis clients** chaque mois sur **différentes plateformes** (Google, Trustpilot, Facebook, Yelp...). Gérer manuellement cette masse de retours est :
 
 - ⏰ **Chronophage** : Lire et analyser chaque avis prend des heures
-- - 😵 **Complexe** : Difficile de dégager des tendances à partir de données dispersées
-  - - 💬 **Frustrant** : Répondre individuellement à chaque avis de manière professionnelle est épuisant
-    - - 🔍 **Aveugle** : Impossible de se comparer objectivement aux concurrents
-      - - 🔮 **Réactif** : Les entreprises réagissent aux problèmes au lieu de les anticiper
-       
-        - **AI-BusinessPulse** résout tous ces problèmes en une seule plateforme intelligente ! 🚀
-       
-        - ---
+- 😵 **Complexe** : Difficile de dégager des tendances à partir de données dispersées
+- 💬 **Frustrant** : Répondre individuellement à chaque avis de manière professionnelle est épuisant
+- 🔍 **Aveugle** : Impossible de se comparer objectivement aux concurrents
+- 🔮 **Réactif** : Les entreprises réagissent aux problèmes au lieu de les anticiper
 
-        ## ✨ 5 Fonctionnalités Originales
+**AI-BusinessPulse** résout tous ces problèmes en une seule plateforme intelligente ! 🚀
 
-        ### 1. 📊 Agrégateur Multi-Sources d'Avis
+---
 
-        Centralisez tous vos avis clients en un seul tableau de bord. Collecte les avis de **5 plateformes** : Google Reviews, Trustpilot, Facebook, Yelp, TripAdvisor. Dashboard interactif avec graphiques en temps réel.
+## ✨ 5 Fonctionnalités Originales
 
-        ### 2. 🎭 Analyse Profonde de Sentiment & Détection d'Émotions
+### 1. 📊 Agrégateur Multi-Sources d'Avis
 
-        Comprenez ce que ressentent vraiment vos clients. Analyse de sentiment via **TextBlob NLP** et détection de **7 émotions** : Joie 😊, Colère 😠, Tristesse 😢, Peur 😨, Dégoût 🤢, Surprise 😲, Neutre 🤔.
+Centralisez tous vos avis clients en un seul tableau de bord. Collecte les avis de **5 plateformes** : Google Reviews, Trustpilot, Facebook, Yelp, TripAdvisor. Dashboard interactif avec graphiques en temps réel.
 
-        ### 3. 💬 Générateur de Réponses Automatiques IA
+### 2. 🎭 Analyse Profonde de Sentiment & Détection d'Émotions
 
-        Répondez professionnellement à chaque avis en un clic. Génération de réponses **personnalisées** selon le sentiment détecté.
+Comprenez ce que ressentent vraiment vos clients. Analyse de sentiment via **TextBlob NLP** et détection de **7 émotions** : Joie 😊, Colère 😠, Tristesse 😢, Peur 😨, Dégoût 🤢, Surprise 😲, Neutre 🤔.
 
-        ### 4. 🎯 Radar Concurrentiel de Réputation
+### 3. 💬 Générateur de Réponses Automatiques IA
 
-        Comparez-vous objectivement à vos concurrents avec un **spider chart** interactif sur 6 axes.
+Répondez professionnellement à chaque avis en un clic. Génération de réponses **personnalisées** selon le sentiment détecté.
 
-        ### 5. 🔮 Prédiction de Tendances de Réputation
+### 4. 🎯 Radar Concurrentiel de Réputation
 
-        Anticipez l'avenir de votre réputation avec la **régression linéaire** sur les données historiques et des prédictions sur **3 à 12 mois**.
+Comparez-vous objectivement à vos concurrents avec un **spider chart** interactif sur 6 axes.
 
-        ---
+### 5. 🔮 Prédiction de Tendances de Réputation
 
-        ## 🚀 Démarrage Rapide
+Anticipez l'avenir de votre réputation avec la **régression linéaire** sur les données historiques et des prédictions sur **3 à 12 mois**.
 
-        ### Prérequis
+---
 
-        - **Python 3.9+** installé sur votre machine
-        - - **pip** (gestionnaire de paquets Python)
-          - - **Git** pour cloner le repository
-           
-            - ### Installation en 3 étapes
-           
-            - ```bash
-              # 1. Cloner le repository
-              git clone https://github.com/thierrymaesen/AI-BusinessPulse.git
-              cd AI-BusinessPulse
+## 🚀 Démarrage Rapide
 
-              # 2. Installer les dépendances
-              pip install -r requirements.txt
+### Prérequis
 
-              # 3. Lancer l'application
-              streamlit run app.py
-              ```
+- **Python 3.9+** installé sur votre machine
+- **pip** (gestionnaire de paquets Python)
+- **Git** pour cloner le repository
 
-              L'application s'ouvre automatiquement dans votre navigateur à l'adresse : `http://localhost:8501`
+### Installation en 3 étapes
 
-              ---
+```bash
+# 1. Cloner le repository
+git clone https://github.com/thierrymaesen/AI-BusinessPulse.git
+cd AI-BusinessPulse
 
-              ## 🏗️ Structure du Projet
+# 2. Installer les dépendances
+pip install -r requirements.txt
 
-              ```
-              AI-BusinessPulse/
-              ├── 📄 app.py                # Application principale Streamlit
-              ├── 📄 requirements.txt      # Dépendances Python
-              ├── 📄 README.md             # Documentation complète
-              ├── 📄 LICENSE               # Licence MIT
-              ├── 📄 .gitignore            # Fichiers à ignorer
-              └── 📁 .streamlit/
-                  └── config.toml          # Configuration du thème Streamlit
-              ```
+# 3. Lancer l'application
+streamlit run app.py
+```
 
-              ---
+L'application s'ouvre automatiquement dans votre navigateur à l'adresse : `http://localhost:8501`
 
-              ## 🛠️ Technologies Utilisées
+---
 
-              | Technologie | Usage | Pourquoi ? |
-              |-------------|-------|------------|
-              | **Python 3.9+** | Langage principal | Écosystème IA/ML riche |
-              | **Streamlit** | Interface web | Prototypage rapide, interactif |
-              | **TextBlob** | Analyse de sentiment | NLP simple et efficace |
-              | **Plotly** | Graphiques interactifs | Graphiques professionnels |
-              | **Pandas** | Manipulation de données | Standard de l'industrie |
-              | **NumPy** | Calculs numériques | Régression linéaire |
+## 🏗️ Structure du Projet
 
-              ---
+```
+AI-BusinessPulse/
+├── app.py                # Application principale Streamlit
+├── requirements.txt      # Dépendances Python
+├── README.md             # Documentation complète
+├── LICENSE               # Licence MIT
+├── .gitignore            # Fichiers à ignorer
+└── .streamlit/
+    └── config.toml          # Configuration du thème Streamlit
+```
 
-              ## 🤝 Contribuer
+---
 
-              Les contributions sont les bienvenues !
+## 🛠️ Technologies Utilisées
 
-              1. **Fork** le projet
-              2. 2. Créez votre branche (`git checkout -b feature/NouvelleFeature`)
-                 3. 3. Committez vos changements (`git commit -m 'Ajout NouvelleFeature'`)
-                    4. 4. Pushez sur la branche (`git push origin feature/NouvelleFeature`)
-                       5. 5. Ouvrez une **Pull Request**
-                         
-                          6. ---
-                         
-                          7. ## 👨‍💻 Auteur
-                         
-                          8. **Thierry Maesen**
-                          9. Consultant IA & Automatisation | n8n & Agents IA | WordPress
-                         
-                          10. - 🌐 [GitHub](https://github.com/thierrymaesen)
-                              - - 📍 Belgique
-                               
-                                - ---
+| Technologie | Usage | Pourquoi ? |
+|-------------|-------|------------|
+| **Python 3.9+** | Langage principal | Écosystème IA/ML riche |
+| **Streamlit** | Interface web | Prototypage rapide, interactif |
+| **TextBlob** | Analyse de sentiment | NLP simple et efficace |
+| **Plotly** | Graphiques interactifs | Graphiques professionnels |
+| **Pandas** | Manipulation de données | Standard de l'industrie |
+| **NumPy** | Calculs numériques | Régression linéaire |
 
-                                ## 📄 Licence
+---
 
-                                Ce projet est sous licence **MIT** — voir le fichier [LICENSE](LICENSE) pour plus de détails.
+## 🤝 Contribuer
 
-                                ---
+Les contributions sont les bienvenues !
 
-                                <div align="center">
+1. **Fork** le projet
+2. Créez votre branche (`git checkout -b feature/NouvelleFeature`)
+3. Committez vos changements (`git commit -m 'Ajout NouvelleFeature'`)
+4. Pushez sur la branche (`git push origin feature/NouvelleFeature`)
+5. Ouvrez une **Pull Request**
 
-                                **⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile !**
+---
 
-                                *Fait avec ❤️ et 🧠 par Thierry Maesen*
+## 👨‍💻 Auteur
 
-                                </div>
+**Thierry Maesen** — Consultant IA & Automatisation | n8n & Agents IA | WordPress
 
-                                ---
+- 🌐 [GitHub](https://github.com/thierrymaesen)
+- 📍 Belgique
 
-                                <a name="english"></a>
+---
 
-                                <div align="center">
+## 📄 Licence
 
-                                # 🧠 AI-BusinessPulse
+Ce projet est sous licence **MIT** — voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-                                ### AI-powered Business Reputation Intelligence Platform
+---
 
-                                [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
-                                [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
-                                [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-                                [![Made with AI](https://img.shields.io/badge/Made%20with-AI%20%F0%9F%A4%96-purple.svg)]()
-                                [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+<div align="center">
 
-                                *Analyze your customer reviews, detect emotions, generate automatic responses, benchmark against competitors and predict your reputation trends — all powered by Artificial Intelligence.*
+**⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile !**
 
-                                </div>
+*Fait avec ❤️ et 🧠 par Thierry Maesen*
 
-                                ---
+</div>
 
-                                ## 🎯 Problem Solved
+---
 
-                                Businesses receive **hundreds of customer reviews** every month across **different platforms** (Google, Trustpilot, Facebook, Yelp...). Manually managing this volume of feedback is:
+<a name="english"></a>
 
-                                - ⏰ **Time-consuming**: Reading and analyzing each review takes hours
-                                - - 😵 **Complex**: Hard to identify trends from scattered data
-                                  - - 💬 **Frustrating**: Responding individually to each review professionally is exhausting
-                                    - - 🔍 **Blind**: Impossible to objectively compare yourself to competitors
-                                      - - 🔮 **Reactive**: Businesses react to problems instead of anticipating them
-                                       
-                                        - **AI-BusinessPulse** solves all these problems in a single intelligent platform! 🚀
-                                       
-                                        - ---
+<div align="center">
 
-                                        ## ✨ 5 Original Features
+# 🧠 AI-BusinessPulse
 
-                                        ### 1. 📊 Multi-Source Review Aggregator
+### AI-powered Business Reputation Intelligence Platform
 
-                                        Centralize all your customer reviews in a single dashboard. Collects reviews from **5 platforms**: Google Reviews, Trustpilot, Facebook, Yelp, TripAdvisor. Interactive dashboard with real-time charts.
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Made with AI](https://img.shields.io/badge/Made%20with-AI%20%F0%9F%A4%96-purple.svg)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-                                        ### 2. 🎭 Deep Sentiment Analysis & Emotion Detection
+*Analyze your customer reviews, detect emotions, generate automatic responses, benchmark against competitors and predict your reputation trends — all powered by Artificial Intelligence.*
 
-                                        Understand what your customers really feel. Sentiment analysis via **TextBlob NLP** and detection of **7 emotions**: Joy 😊, Anger 😠, Sadness 😢, Fear 😨, Disgust 🤢, Surprise 😲, Neutral 🤔.
+</div>
 
-                                        ### 3. 💬 AI Automatic Response Generator
+---
 
-                                        Respond professionally to each review in one click. Generation of **personalized** responses based on the detected sentiment.
+## 🎯 Problem Solved
 
-                                        ### 4. 🎯 Competitive Reputation Radar
+Businesses receive **hundreds of customer reviews** every month across **different platforms** (Google, Trustpilot, Facebook, Yelp...). Manually managing this volume of feedback is:
 
-                                        Objectively compare yourself to your competitors with an interactive **spider chart** across 6 axes.
+- ⏰ **Time-consuming**: Reading and analyzing each review takes hours
+- 😵 **Complex**: Hard to identify trends from scattered data
+- 💬 **Frustrating**: Responding individually to each review professionally is exhausting
+- 🔍 **Blind**: Impossible to objectively compare yourself to competitors
+- 🔮 **Reactive**: Businesses react to problems instead of anticipating them
 
-                                        ### 5. 🔮 Reputation Trend Prediction
+**AI-BusinessPulse** solves all these problems in a single intelligent platform! 🚀
 
-                                        Anticipate the future of your reputation with **linear regression** on historical data and predictions over **3 to 12 months**.
+---
 
-                                        ---
+## ✨ 5 Original Features
 
-                                        ## 🚀 Quick Start
+### 1. 📊 Multi-Source Review Aggregator
 
-                                        ### Prerequisites
+Centralize all your customer reviews in a single dashboard. Collects reviews from **5 platforms**: Google Reviews, Trustpilot, Facebook, Yelp, TripAdvisor. Interactive dashboard with real-time charts.
 
-                                        - **Python 3.9+** installed on your machine
-                                        - - **pip** (Python package manager)
-                                          - - **Git** to clone the repository
-                                           
-                                            - ### Installation in 3 steps
-                                           
-                                            - ```bash
-                                              # 1. Clone the repository
-                                              git clone https://github.com/thierrymaesen/AI-BusinessPulse.git
-                                              cd AI-BusinessPulse
+### 2. 🎭 Deep Sentiment Analysis & Emotion Detection
 
-                                              # 2. Install dependencies
-                                              pip install -r requirements.txt
+Understand what your customers really feel. Sentiment analysis via **TextBlob NLP** and detection of **7 emotions**: Joy 😊, Anger 😠, Sadness 😢, Fear 😨, Disgust 🤢, Surprise 😲, Neutral 🤔.
 
-                                              # 3. Launch the application
-                                              streamlit run app.py
-                                              ```
+### 3. 💬 AI Automatic Response Generator
 
-                                              The application opens automatically in your browser at: `http://localhost:8501`
+Respond professionally to each review in one click. Generation of **personalized** responses based on the detected sentiment.
 
-                                              ---
+### 4. 🎯 Competitive Reputation Radar
 
-                                              ## 🏗️ Project Structure
+Objectively compare yourself to your competitors with an interactive **spider chart** across 6 axes.
 
-                                              ```
-                                              AI-BusinessPulse/
-                                              ├── 📄 app.py                # Main Streamlit application
-                                              ├── 📄 requirements.txt      # Python dependencies
-                                              ├── 📄 README.md             # Complete documentation
-                                              ├── 📄 LICENSE               # MIT License
-                                              ├── 📄 .gitignore            # Files to ignore
-                                              └── 📁 .streamlit/
-                                                  └── config.toml          # Streamlit theme configuration
-                                              ```
+### 5. 🔮 Reputation Trend Prediction
 
-                                              ---
+Anticipate the future of your reputation with **linear regression** on historical data and predictions over **3 to 12 months**.
 
-                                              ## 🛠️ Technologies Used
+---
 
-                                              | Technology | Usage | Why? |
-                                              |------------|-------|------|
-                                              | **Python 3.9+** | Main language | Rich AI/ML ecosystem |
-                                              | **Streamlit** | Web interface | Rapid prototyping, interactive |
-                                              | **TextBlob** | Sentiment analysis | Simple and effective NLP |
-                                              | **Plotly** | Interactive charts | Professional graphics |
-                                              | **Pandas** | Data manipulation | Industry standard |
-                                              | **NumPy** | Numerical computations | Linear regression |
+## 🚀 Quick Start
 
-                                              ---
+### Prerequisites
 
-                                              ## 🤝 Contributing
+- **Python 3.9+** installed on your machine
+- **pip** (Python package manager)
+- **Git** to clone the repository
 
-                                              Contributions are welcome!
+### Installation in 3 steps
 
-                                              1. **Fork** the project
-                                              2. 2. Create your branch (`git checkout -b feature/NewFeature`)
-                                                 3. 3. Commit your changes (`git commit -m 'Add NewFeature'`)
-                                                    4. 4. Push to the branch (`git push origin feature/NewFeature`)
-                                                       5. 5. Open a **Pull Request**
-                                                         
-                                                          6. ---
-                                                         
-                                                          7. ## 👨‍💻 Author
-                                                         
-                                                          8. **Thierry Maesen**
-                                                          9. AI & Automation Consultant | n8n & AI Agents | WordPress
-                                                         
-                                                          10. - 🌐 [GitHub](https://github.com/thierrymaesen)
-                                                              - - 📍 Belgium
-                                                               
-                                                                - ---
+```bash
+# 1. Clone the repository
+git clone https://github.com/thierrymaesen/AI-BusinessPulse.git
+cd AI-BusinessPulse
 
-                                                                ## 📄 License
+# 2. Install dependencies
+pip install -r requirements.txt
 
-                                                                This project is licensed under the **MIT** License — see the [LICENSE](LICENSE) file for details.
+# 3. Launch the application
+streamlit run app.py
+```
 
-                                                                ---
+The application opens automatically in your browser at: `http://localhost:8501`
 
-                                                                <div align="center">
+---
 
-                                                                **⭐ If you like this project, feel free to give it a star!**
+## 🏗️ Project Structure
 
-                                                                *Made with ❤️ and 🧠 by Thierry Maesen*
+```
+AI-BusinessPulse/
+├── app.py                # Main Streamlit application
+├── requirements.txt      # Python dependencies
+├── README.md             # Complete documentation
+├── LICENSE               # MIT License
+├── .gitignore            # Files to ignore
+└── .streamlit/
+    └── config.toml          # Streamlit theme configuration
+```
 
-                                                                </div>
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Usage | Why? |
+|------------|-------|------|
+| **Python 3.9+** | Main language | Rich AI/ML ecosystem |
+| **Streamlit** | Web interface | Rapid prototyping, interactive |
+| **TextBlob** | Sentiment analysis | Simple and effective NLP |
+| **Plotly** | Interactive charts | Professional graphics |
+| **Pandas** | Data manipulation | Industry standard |
+| **NumPy** | Numerical computations | Linear regression |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. **Fork** the project
+2. Create your branch (`git checkout -b feature/NewFeature`)
+3. Commit your changes (`git commit -m 'Add NewFeature'`)
+4. Push to the branch (`git push origin feature/NewFeature`)
+5. Open a **Pull Request**
+
+---
+
+## 👨‍💻 Author
+
+**Thierry Maesen** — AI & Automation Consultant | n8n & AI Agents | WordPress
+
+- 🌐 [GitHub](https://github.com/thierrymaesen)
+- 📍 Belgium
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT** License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+**⭐ If you like this project, feel free to give it a star!**
+
+*Made with ❤️ and 🧠 by Thierry Maesen*
+
+</div>
