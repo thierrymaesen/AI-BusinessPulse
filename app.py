@@ -961,31 +961,31 @@ def main():
 
         if predictions["slope"] < -0.01:
             st.error("⚠️ **Attention : Tendance à la baisse détectée !**")
-        st.markdown("""
+            st.markdown("""
                 **Actions recommandées par l'IA :**
                             - 🔍 Analyser les avis négatifs récents pour identifier les problèmes récurrents
                                         - 💬 Répondre rapidement à tous les avis négatifs avec empathie
                                                     - 🎯 Lancer une enquête de satisfaction auprès de vos clients fidèles
                                                                 - 🔧 Mettre en place un plan d'action qualité immédiat
-                                                                            """)
-    elif predictions["slope"] > 0.01:
-        st.success("🎉 **Excellente nouvelle : Tendance à la hausse !**")
-        st.markdown("""
+            """)
+        elif predictions["slope"] > 0.01:
+            st.success("🎉 **Excellente nouvelle : Tendance à la hausse !**")
+            st.markdown("""
                     **Conseils pour maintenir la dynamique :**
                                 - ⭐ Continuez à solliciter des avis de vos clients satisfaits
                                             - 🏆 Capitalisez sur vos points forts identifiés
                                                         - 🚀 Investissez dans l'innovation pour creuser l'écart avec la concurrence
                                                                     - 📱 Renforcez votre présence sur les plateformes d'avis
-                                                                                """)
-    else:
-        st.info("➡️ **Réputation stable - Opportunité de croissance**")
-        st.markdown("""
+            """)
+        else:
+            st.info("➡️ **Réputation stable - Opportunité de croissance**")
+            st.markdown("""
                     **Suggestions pour passer au niveau supérieur :**
                                 - 💡 Identifiez un axe différenciateur par rapport aux concurrents
                                             - 📊 Fixez des objectifs mesurables d'amélioration de satisfaction
                                                         - 🤝 Développez un programme de fidélité pour récompenser vos ambassadeurs
                                                                     - 🎓 Formez vos équipes aux meilleures pratiques du service client
-                                                                                """)
+            """)
 
     # ---- PIED DE PAGE ----
     st.markdown("---")
