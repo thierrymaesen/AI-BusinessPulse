@@ -617,7 +617,7 @@ def main():
     # ---- INITIALISATION DU MOTEUR ----
     # Utilise le cache Streamlit pour éviter de recalculer à chaque refresh
     if "engine" not in st.session_state or analyze_btn:
-                engine = BusinessPulseEngine(business_name, category)
+        engine = BusinessPulseEngine(business_name, category)
         engine.analyze_all_reviews()
         st.session_state.engine = engine
 
