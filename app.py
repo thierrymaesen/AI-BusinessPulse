@@ -627,21 +627,21 @@ def main():
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-                avg_rating = engine.reviews["rating"].mean()
+        avg_rating = engine.reviews["rating"].mean()
         st.metric("⭐ Note Moyenne", f"{avg_rating:.1f}/5",
-                                    delta=f"+{random.uniform(0.1, 0.3):.1f} vs mois dernier")
+                            delta=f"+{random.uniform(0.1, 0.3):.1f} vs mois dernier")
     with col2:
-                total_reviews = len(engine.reviews)
+        total_reviews = len(engine.reviews)
         st.metric("📝 Total Avis", total_reviews,
-                                    delta=f"+{random.randint(5, 20)} nouveaux")
+                            delta=f"+{random.randint(5, 20)} nouveaux")
     with col3:
-                positive_pct = len(engine.reviews[engine.reviews["rating"] >= 4]) / total_reviews * 100
+        positive_pct = len(engine.reviews[engine.reviews["rating"] >= 4]) / total_reviews * 100
         st.metric("😊 Avis Positifs", f"{positive_pct:.0f}%")
     with col4:
-                negative_pct = len(engine.reviews[engine.reviews["rating"] <= 2]) / total_reviews * 100
+        negative_pct = len(engine.reviews[engine.reviews["rating"] <= 2]) / total_reviews * 100
         st.metric("😟 Avis Négatifs", f"{negative_pct:.0f}%")
     with col5:
-                sources_count = engine.reviews["source"].nunique()
+        sources_count = engine.reviews["source"].nunique()
         st.metric("🌐 Sources", f"{sources_count} plateformes")
 
     # ---- ONGLETS PRINCIPAUX ----
@@ -657,36 +657,36 @@ def main():
     # ONGLET 1 : Dashboard & Agrégation Multi-Sources
     # ============================================================
     with tab1:
-                st.header("📊 Dashboard - Agrégation Multi-Sources")
+        st.header("📊 Dashboard - Agrégation Multi-Sources")
         st.markdown("Vue d'ensemble de tous vos avis clients provenant de différentes plateformes.")
 
         # Graphique : Distribution des avis par source
         col_a, col_b = st.columns(2)
 
         with col_a:
-                        # Camembert de la répartition par source
-                        source_counts = engine.reviews["source"].value_counts()
-                        fig_sources = px.pie(
-                            values=source_counts.values,
-                            names=source_counts.index,
-                            title="🌐 Répartition des Avis par Source",
-                            color_discrete_sequence=px.colors.qualitative.Set3,
-                            hole=0.4  # Donut chart
-                        )
-                        fig_sources.update_layout(template="plotly_dark")
-                        st.plotly_chart(fig_sources, use_container_width=True)
+            # Camembert de la répartition par source
+            source_counts = engine.reviews["source"].value_counts()
+            fig_sources = px.pie(
+                values=source_counts.values,
+                names=source_counts.index,
+                title="🌐 Répartition des Avis par Source",
+                color_discrete_sequence=px.colors.qualitative.Set3,
+                hole=0.4  # Donut chart
+            )
+            fig_sources.update_layout(template="plotly_dark")
+            st.plotly_chart(fig_sources, use_container_width=True)
 
         with col_b:
-                        # Histogramme des notes
-                        fig_ratings = px.histogram(
-                                            engine.reviews, x="rating",
-                                            title="⭐ Distribution des Notes (1-5 étoiles)",
-                                            color="rating",
-                                            color_discrete_sequence=["#e74c3c", "#e67e22", "#f1c40f", "#2ecc71", "#27ae60"],
-                                            nbins=5
-                        )
-                        fig_ratings.update_layout(template="plotly_dark", showlegend=False)
-                        st.plotly_chart(fig_ratings, use_container_width=True)
+            # Histogramme des notes
+            fig_ratings = px.histogram(
+                                engine.reviews, x="rating",
+                                title="⭐ Distribution des Notes (1-5 étoiles)",
+                                color="rating",
+                                color_discrete_sequence=["#e74c3c", "#e67e22", "#f1c40f", "#2ecc71", "#27ae60"],
+                                nbins=5
+            )
+            fig_ratings.update_layout(template="plotly_dark", showlegend=False)
+            st.plotly_chart(fig_ratings, use_container_width=True)
 
         # Évolution temporelle des avis
         reviews_timeline = engine.reviews.copy()
@@ -695,9 +695,9 @@ def main():
         monthly_counts = reviews_timeline.set_index("date").resample("M").size()
 
         fig_timeline = px.area(
-                        x=monthly_counts.index, y=monthly_counts.values,
-                        title="📅 Volume d'Avis par Mois (12 derniers mois)",
-                        labels={"x": "Date", "y": "Nombre d'avis"}
+                x=monthly_counts.index, y=monthly_counts.values,
+                title="📅 Volume d'Avis par Mois (12 derniers mois)",
+                labels={"x": "Date", "y": "Nombre d'avis"}
         )
         fig_timeline.update_layout(template="plotly_dark")
         st.plotly_chart(fig_timeline, use_container_width=True)
@@ -705,55 +705,55 @@ def main():
         # Tableau détaillé des derniers avis
         st.subheader("📋 Derniers Avis Reçus")
         st.dataframe(
-                        engine.reviews[["client", "text", "rating", "source", "date", "emotion"]]
-                        .sort_values("date", ascending=False)
-                        .head(20),
-                        use_container_width=True,
-                        height=400
+                engine.reviews[["client", "text", "rating", "source", "date", "emotion"]]
+                .sort_values("date", ascending=False)
+                .head(20),
+                use_container_width=True,
+                height=400
         )
 
     # ============================================================
     # ONGLET 2 : Analyse de Sentiment & Détection d'Émotions
     # ============================================================
     with tab2:
-                st.header("🎭 Analyse de Sentiment & Détection d'Émotions")
+        st.header("🎭 Analyse de Sentiment & Détection d'Émotions")
         st.markdown("Notre IA analyse chaque avis pour détecter le sentiment et l'émotion dominante.")
 
         col_s1, col_s2 = st.columns(2)
 
         with col_s1:
-                        # Graphique des émotions détectées
-                        emotion_counts = engine.reviews["emotion"].value_counts()
-                        fig_emotions = px.bar(
-                            x=emotion_counts.index, y=emotion_counts.values,
-                            title="🎭 Émotions Détectées dans les Avis",
-                            labels={"x": "Émotion", "y": "Nombre d'avis"},
-                            color=emotion_counts.index,
-                            color_discrete_map=EMOTION_COLORS
-                        )
-                        fig_emotions.update_layout(template="plotly_dark", showlegend=False)
-                        st.plotly_chart(fig_emotions, use_container_width=True)
+            # Graphique des émotions détectées
+            emotion_counts = engine.reviews["emotion"].value_counts()
+            fig_emotions = px.bar(
+                x=emotion_counts.index, y=emotion_counts.values,
+                title="🎭 Émotions Détectées dans les Avis",
+                labels={"x": "Émotion", "y": "Nombre d'avis"},
+                color=emotion_counts.index,
+                color_discrete_map=EMOTION_COLORS
+            )
+            fig_emotions.update_layout(template="plotly_dark", showlegend=False)
+            st.plotly_chart(fig_emotions, use_container_width=True)
 
         with col_s2:
-                        # Graphique de la distribution des sentiments
-                        sentiment_counts = engine.reviews["sentiment_label"].value_counts()
-                        fig_sentiment = px.pie(
-                            values=sentiment_counts.values,
-                            names=sentiment_counts.index,
-                            title="🔍 Distribution des Sentiments",
-                            color_discrete_sequence=["#2ecc71", "#27ae60", "#95a5a6", "#e67e22", "#e74c3c"]
-                        )
-                        fig_sentiment.update_layout(template="plotly_dark")
-                        st.plotly_chart(fig_sentiment, use_container_width=True)
+            # Graphique de la distribution des sentiments
+            sentiment_counts = engine.reviews["sentiment_label"].value_counts()
+            fig_sentiment = px.pie(
+                values=sentiment_counts.values,
+                names=sentiment_counts.index,
+                title="🔍 Distribution des Sentiments",
+                color_discrete_sequence=["#2ecc71", "#27ae60", "#95a5a6", "#e67e22", "#e74c3c"]
+            )
+            fig_sentiment.update_layout(template="plotly_dark")
+            st.plotly_chart(fig_sentiment, use_container_width=True)
 
         # Scatter plot : Polarité vs Subjectivité
         fig_scatter = px.scatter(
-                        engine.reviews, x="sentiment_polarity", y="subjectivity",
-                        color="emotion", size="rating",
-                        title="🔬 Carte des Sentiments (Polarité vs Subjectivité)",
-                        labels={"sentiment_polarity": "Polarité (-1 à +1)", 
-                                                    "subjectivity": "Subjectivité (0 à 1)"},
-                        hover_data=["client", "text"]
+                engine.reviews, x="sentiment_polarity", y="subjectivity",
+                color="emotion", size="rating",
+                title="🔬 Carte des Sentiments (Polarité vs Subjectivité)",
+                labels={"sentiment_polarity": "Polarité (-1 à +1)", 
+                                            "subjectivity": "Subjectivité (0 à 1)"},
+                hover_data=["client", "text"]
         )
         fig_scatter.update_layout(template="plotly_dark")
         st.plotly_chart(fig_scatter, use_container_width=True)
@@ -761,25 +761,25 @@ def main():
         # Test interactif de sentiment
         st.subheader("🧪 Testez l'Analyse de Sentiment en Direct")
         test_text = st.text_area(
-                        "Entrez un avis à analyser :",
-                        value="Le service était vraiment excellent, je suis très satisfait de mon expérience !",
-                        height=100
+                "Entrez un avis à analyser :",
+                value="Le service était vraiment excellent, je suis très satisfait de mon expérience !",
+                height=100
         )
         if st.button("🔍 Analyser ce texte"):
-                        result = engine.analyze_sentiment(test_text)
-                        col_r1, col_r2, col_r3 = st.columns(3)
-                        with col_r1:
-                                            st.metric("Polarité", f"{result['polarity']:.3f}")
-                                        with col_r2:
-                            st.metric("Subjectivité", f"{result['subjectivity']:.3f}")
-                                                        with col_r3:
-                                                            st.metric("Sentiment", result["label"])
+            result = engine.analyze_sentiment(test_text)
+            col_r1, col_r2, col_r3 = st.columns(3)
+            with col_r1:
+                st.metric("Polarité", f"{result['polarity']:.3f}")
+            with col_r2:
+                st.metric("Subjectivité", f"{result['subjectivity']:.3f}")
+            with col_r3:
+                st.metric("Sentiment", result["label"])
 
     # ============================================================
     # ONGLET 3 : Générateur de Réponses IA
     # ============================================================
     with tab3:
-                st.header("💬 Générateur de Réponses Automatiques IA")
+        st.header("💬 Générateur de Réponses Automatiques IA")
         st.markdown("L'IA génère des réponses personnalisées et professionnelles pour chaque avis client.")
 
         # Sélection d'avis à répondre
@@ -791,47 +791,47 @@ def main():
         priority_reviews = pd.concat([negative_reviews, positive_reviews_sample])
 
         for idx, row in priority_reviews.iterrows():
-                        # Affiche chaque avis dans une carte expandable
-                        with st.expander(
-                                            f"{'🔴' if row['rating'] <= 2 else '🟢'} {row['client']} - "
-                                            f"{'⭐' * row['rating']} - {row['source']}"
-                        ):
-                                            st.markdown(f"**Avis :** {row['text']}")
-                                            st.markdown(f"**Date :** {row['date']} | **Émotion :** {row['emotion']}")
+            # Affiche chaque avis dans une carte expandable
+            with st.expander(
+                                f"{'🔴' if row['rating'] <= 2 else '🟢'} {row['client']} - "
+                                f"{'⭐' * row['rating']} - {row['source']}"
+            ):
+                st.markdown(f"**Avis :** {row['text']}")
+                st.markdown(f"**Date :** {row['date']} | **Émotion :** {row['emotion']}")
 
-                # Génère et affiche la réponse IA
-                response = engine.generate_smart_response(
-                                        row["text"], row.get("sentiment_label", "Neutre"), row["client"]
-                )
-                st.markdown("---")
-                st.markdown("**🤖 Réponse générée par l'IA :**")
-                st.success(response)
+        # Génère et affiche la réponse IA
+        response = engine.generate_smart_response(
+                                row["text"], row.get("sentiment_label", "Neutre"), row["client"]
+        )
+        st.markdown("---")
+        st.markdown("**🤖 Réponse générée par l'IA :**")
+        st.success(response)
 
-                # Boutons d'action
-                col_btn1, col_btn2, col_btn3 = st.columns(3)
-                with col_btn1:
-                                        st.button(f"✅ Approuver", key=f"approve_{idx}")
-                                    with col_btn2:
-                                                            st.button(f"✏️ Modifier", key=f"edit_{idx}")
-                                                        with col_btn3:
-                                                                                st.button(f"🔄 Régénérer", key=f"regen_{idx}")
+        # Boutons d'action
+        col_btn1, col_btn2, col_btn3 = st.columns(3)
+        with col_btn1:
+            st.button(f"✅ Approuver", key=f"approve_{idx}")
+        with col_btn2:
+            st.button(f"✏️ Modifier", key=f"edit_{idx}")
+        with col_btn3:
+            st.button(f"🔄 Régénérer", key=f"regen_{idx}")
 
         # Statistiques des réponses
         st.markdown("---")
         st.subheader("📊 Statistiques de Réponse")
         col_stat1, col_stat2, col_stat3 = st.columns(3)
         with col_stat1:
-                        st.metric("Taux de réponse", "94%", delta="+5%")
+            st.metric("Taux de réponse", "94%", delta="+5%")
         with col_stat2:
-                        st.metric("Temps moyen de réponse", "2.3h", delta="-1.2h")
+            st.metric("Temps moyen de réponse", "2.3h", delta="-1.2h")
         with col_stat3:
-                        st.metric("Satisfaction post-réponse", "87%", delta="+12%")
+            st.metric("Satisfaction post-réponse", "87%", delta="+12%")
 
     # ============================================================
     # ONGLET 4 : Radar Concurrentiel
     # ============================================================
     with tab4:
-                st.header("🎯 Radar Concurrentiel de Réputation")
+        st.header("🎯 Radar Concurrentiel de Réputation")
         st.markdown("Comparez votre réputation avec vos concurrents sur 6 axes stratégiques.")
 
         # Génère les données de benchmark
@@ -844,24 +844,24 @@ def main():
         colors = ["#3498db", "#e74c3c", "#2ecc71", "#f39c12"]
 
         for i, (company, scores) in enumerate(benchmark["data"].items()):
-                        fig_radar.add_trace(go.Scatterpolar(
-                                            r=scores + [scores[0]],  # Ferme le polygone
-                                            theta=benchmark["axes"] + [benchmark["axes"][0]],
-                                            fill="toself",
-                                            name=company,
-                                            line_color=colors[i % len(colors)],
-                                            opacity=0.7
-                        ))
+            fig_radar.add_trace(go.Scatterpolar(
+                                r=scores + [scores[0]],  # Ferme le polygone
+                                theta=benchmark["axes"] + [benchmark["axes"][0]],
+                                fill="toself",
+                                name=company,
+                                line_color=colors[i % len(colors)],
+                                opacity=0.7
+            ))
 
         fig_radar.update_layout(
-                        polar=dict(
-                                            radialaxis=dict(visible=True, range=[0, 100]),
-                                            bgcolor="rgba(0,0,0,0)"
-                        ),
-                        title="🎯 Radar Comparatif Multi-Axes",
-                        template="plotly_dark",
-                        showlegend=True,
-                        height=500
+                polar=dict(
+                                    radialaxis=dict(visible=True, range=[0, 100]),
+                                    bgcolor="rgba(0,0,0,0)"
+                ),
+                title="🎯 Radar Comparatif Multi-Axes",
+                template="plotly_dark",
+                showlegend=True,
+                height=500
         )
         st.plotly_chart(fig_radar, use_container_width=True)
 
@@ -872,8 +872,8 @@ def main():
 
         # Colore les cellules selon les scores
         st.dataframe(
-                        comparison_df.style.background_gradient(cmap="RdYlGn", axis=None),
-                        use_container_width=True
+                comparison_df.style.background_gradient(cmap="RdYlGn", axis=None),
+                use_container_width=True
         )
 
         # Analyse des forces et faiblesses
@@ -884,15 +884,15 @@ def main():
 
         col_fw1, col_fw2 = st.columns(2)
         with col_fw1:
-                        st.success(f"🏆 **Votre point fort** : {best_axis} ({max(own_scores):.0f}/100)")
+            st.success(f"🏆 **Votre point fort** : {best_axis} ({max(own_scores):.0f}/100)")
         with col_fw2:
-                        st.warning(f"⚠️ **À améliorer** : {worst_axis} ({min(own_scores):.0f}/100)")
+            st.warning(f"⚠️ **À améliorer** : {worst_axis} ({min(own_scores):.0f}/100)")
 
     # ============================================================
     # ONGLET 5 : Prédictions de Tendances
     # ============================================================
     with tab5:
-                st.header("🔮 Prédiction de Tendances de Réputation")
+        st.header("🔮 Prédiction de Tendances de Réputation")
         st.markdown("Notre IA prédit l'évolution de votre réputation sur les prochains mois.")
 
         # Slider pour choisir l'horizon de prédiction
@@ -906,86 +906,86 @@ def main():
 
         # Données historiques
         fig_pred.add_trace(go.Scatter(
-                        x=predictions["historical_dates"],
-                        y=predictions["historical_values"],
-                        mode="lines+markers",
-                        name="📊 Historique",
-                        line=dict(color="#3498db", width=3),
-                        marker=dict(size=8)
+                x=predictions["historical_dates"],
+                y=predictions["historical_values"],
+                mode="lines+markers",
+                name="📊 Historique",
+                line=dict(color="#3498db", width=3),
+                marker=dict(size=8)
         ))
 
         # Prédictions
         fig_pred.add_trace(go.Scatter(
-                        x=predictions["predicted_dates"],
-                        y=predictions["predicted_values"],
-                        mode="lines+markers",
-                        name="🔮 Prédiction",
-                        line=dict(color="#e74c3c", width=3, dash="dash"),
-                        marker=dict(size=8, symbol="diamond")
+                x=predictions["predicted_dates"],
+                y=predictions["predicted_values"],
+                mode="lines+markers",
+                name="🔮 Prédiction",
+                line=dict(color="#e74c3c", width=3, dash="dash"),
+                marker=dict(size=8, symbol="diamond")
         ))
 
         # Intervalle de confiance (zone ombrée)
         fig_pred.add_trace(go.Scatter(
-                        x=predictions["predicted_dates"] + predictions["predicted_dates"][::-1],
-                        y=predictions["confidence_upper"] + predictions["confidence_lower"][::-1],
-                        fill="toself",
-                        fillcolor="rgba(231, 76, 60, 0.15)",
-                        line=dict(color="rgba(255,255,255,0)"),
-                        name="📐 Intervalle de confiance"
+                x=predictions["predicted_dates"] + predictions["predicted_dates"][::-1],
+                y=predictions["confidence_upper"] + predictions["confidence_lower"][::-1],
+                fill="toself",
+                fillcolor="rgba(231, 76, 60, 0.15)",
+                line=dict(color="rgba(255,255,255,0)"),
+                name="📐 Intervalle de confiance"
         ))
 
         fig_pred.update_layout(
-                        title="🔮 Évolution & Prédiction de la Note Moyenne",
-                        xaxis_title="Date",
-                        yaxis_title="Note Moyenne (1-5)",
-                        yaxis=dict(range=[1, 5]),
-                        template="plotly_dark",
-                        height=500
+                title="🔮 Évolution & Prédiction de la Note Moyenne",
+                xaxis_title="Date",
+                yaxis_title="Note Moyenne (1-5)",
+                yaxis=dict(range=[1, 5]),
+                template="plotly_dark",
+                height=500
         )
         st.plotly_chart(fig_pred, use_container_width=True)
 
         # Indicateurs de tendance
         col_t1, col_t2, col_t3 = st.columns(3)
         with col_t1:
-                        st.metric("📈 Tendance Globale", predictions["trend"])
+            st.metric("📈 Tendance Globale", predictions["trend"])
         with col_t2:
-                        if predictions["predicted_values"]:
-                                            st.metric("🎯 Note Prédite (fin)", 
-                                                                               f"{predictions['predicted_values'][-1]:.2f}/5")
-                                    with col_t3:
-                                                    st.metric("📊 Pente de tendance", 
-                                                                                   f"{predictions['slope']:+.4f}/mois")
+            if predictions["predicted_values"]:
+                st.metric("🎯 Note Prédite (fin)", 
+                                                   f"{predictions['predicted_values'][-1]:.2f}/5")
+        with col_t3:
+            st.metric("📊 Pente de tendance", 
+                                           f"{predictions['slope']:+.4f}/mois")
 
         # Recommandations IA
         st.subheader("💡 Recommandations IA pour Améliorer votre Réputation")
 
         if predictions["slope"] < -0.01:
-                        st.error("⚠️ **Attention : Tendance à la baisse détectée !**")
-            st.markdown("""
-                        **Actions recommandées par l'IA :**
-                                    - 🔍 Analyser les avis négatifs récents pour identifier les problèmes récurrents
-                                                - 💬 Répondre rapidement à tous les avis négatifs avec empathie
-                                                            - 🎯 Lancer une enquête de satisfaction auprès de vos clients fidèles
-                                                                        - 🔧 Mettre en place un plan d'action qualité immédiat
-                                                                                    """)
+            st.error("⚠️ **Attention : Tendance à la baisse détectée !**")
+        st.markdown("""
+                **Actions recommandées par l'IA :**
+                            - 🔍 Analyser les avis négatifs récents pour identifier les problèmes récurrents
+                                        - 💬 Répondre rapidement à tous les avis négatifs avec empathie
+                                                    - 🎯 Lancer une enquête de satisfaction auprès de vos clients fidèles
+                                                                - 🔧 Mettre en place un plan d'action qualité immédiat
+                                                                            """)
     elif predictions["slope"] > 0.01:
-            st.success("🎉 **Excellente nouvelle : Tendance à la hausse !**")
-            st.markdown("""
-                        **Conseils pour maintenir la dynamique :**
-                                    - ⭐ Continuez à solliciter des avis de vos clients satisfaits
-                                                - 🏆 Capitalisez sur vos points forts identifiés
-                                                            - 🚀 Investissez dans l'innovation pour creuser l'écart avec la concurrence
-                                                                        - 📱 Renforcez votre présence sur les plateformes d'avis
-                                                                                    """)
+        st.success("🎉 **Excellente nouvelle : Tendance à la hausse !**")
+        st.markdown("""
+                    **Conseils pour maintenir la dynamique :**
+                                - ⭐ Continuez à solliciter des avis de vos clients satisfaits
+                                            - 🏆 Capitalisez sur vos points forts identifiés
+                                                        - 🚀 Investissez dans l'innovation pour creuser l'écart avec la concurrence
+                                                                    - 📱 Renforcez votre présence sur les plateformes d'avis
+                                                                                """)
     else:
-            st.info("➡️ **Réputation stable - Opportunité de croissance**")
-            st.markdown("""
-                        **Suggestions pour passer au niveau supérieur :**
-                                    - 💡 Identifiez un axe différenciateur par rapport aux concurrents
-                                                - 📊 Fixez des objectifs mesurables d'amélioration de satisfaction
-                                                            - 🤝 Développez un programme de fidélité pour récompenser vos ambassadeurs
-                                                                        - 🎓 Formez vos équipes aux meilleures pratiques du service client
-                                                                                    """)
+        st.info("➡️ **Réputation stable - Opportunité de croissance**")
+        st.markdown("""
+                    **Suggestions pour passer au niveau supérieur :**
+                                - 💡 Identifiez un axe différenciateur par rapport aux concurrents
+                                            - 📊 Fixez des objectifs mesurables d'amélioration de satisfaction
+                                                        - 🤝 Développez un programme de fidélité pour récompenser vos ambassadeurs
+                                                                    - 🎓 Formez vos équipes aux meilleures pratiques du service client
+                                                                                """)
 
     # ---- PIED DE PAGE ----
     st.markdown("---")
@@ -1002,4 +1002,4 @@ def main():
 # POINT D'ENTRÉE DE L'APPLICATION
 # ============================================================
 if __name__ == "__main__":
-        main()
+    main()
