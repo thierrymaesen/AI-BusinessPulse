@@ -26,6 +26,14 @@
 
 ---
 
+## 🚀 Essayer en ligne (Démo live)
+
+Vous pouvez tester **AI-BusinessPulse** directement dans votre navigateur, sans rien installer :
+
+👉 **[Lancer AI-BusinessPulse sur Streamlit](https://ai-businesspulse-thierrymaesen.streamlit.app/)**
+
+---
+
 ## 🎯 Problème Résolu
 
 Les entreprises reçoivent des **centaines d'avis clients** chaque mois sur **différentes plateformes** (Google, Trustpilot, Facebook, Yelp...). Gérer manuellement cette masse de retours est :
@@ -43,23 +51,18 @@ Les entreprises reçoivent des **centaines d'avis clients** chaque mois sur **di
 ## ✨ 5 Fonctionnalités Originales
 
 ### 1. 📊 Agrégateur Multi-Sources d'Avis
-
 Centralisez tous vos avis clients en un seul tableau de bord. Collecte les avis de **5 plateformes** : Google Reviews, Trustpilot, Facebook, Yelp, TripAdvisor. Dashboard interactif avec graphiques en temps réel.
 
 ### 2. 🎭 Analyse Profonde de Sentiment & Détection d'Émotions
-
 Comprenez ce que ressentent vraiment vos clients. Analyse de sentiment via **TextBlob NLP** et détection de **7 émotions** : Joie 😊, Colère 😠, Tristesse 😢, Peur 😨, Dégoût 🤢, Surprise 😲, Neutre 🤔.
 
 ### 3. 💬 Générateur de Réponses Automatiques IA
-
 Répondez professionnellement à chaque avis en un clic. Génération de réponses **personnalisées** selon le sentiment détecté.
 
 ### 4. 🎯 Radar Concurrentiel de Réputation
-
 Comparez-vous objectivement à vos concurrents avec un **spider chart** interactif sur 6 axes.
 
 ### 5. 🔮 Prédiction de Tendances de Réputation
-
 Anticipez l'avenir de votre réputation avec la **régression linéaire** sur les données historiques et des prédictions sur **3 à 12 mois**.
 
 ---
@@ -100,7 +103,7 @@ AI-BusinessPulse/
 ├── LICENSE               # Licence MIT
 ├── .gitignore            # Fichiers à ignorer
 └── .streamlit/
-    └── config.toml          # Configuration du thème Streamlit
+    └── config.toml       # Configuration du thème Streamlit
 ```
 
 ---
@@ -175,6 +178,14 @@ Ce projet est sous licence **MIT** — voir le fichier [LICENSE](LICENSE) pour p
 
 ---
 
+## 🚀 Try it online (Live Demo)
+
+You can test **AI-BusinessPulse** directly in your browser, no installation required:
+
+👉 **[Launch AI-BusinessPulse on Streamlit](https://ai-businesspulse-thierrymaesen.streamlit.app/)**
+
+---
+
 ## 🎯 Problem Solved
 
 Businesses receive **hundreds of customer reviews** every month across **different platforms** (Google, Trustpilot, Facebook, Yelp...). Manually managing this volume of feedback is:
@@ -192,23 +203,18 @@ Businesses receive **hundreds of customer reviews** every month across **differe
 ## ✨ 5 Original Features
 
 ### 1. 📊 Multi-Source Review Aggregator
-
 Centralize all your customer reviews in a single dashboard. Collects reviews from **5 platforms**: Google Reviews, Trustpilot, Facebook, Yelp, TripAdvisor. Interactive dashboard with real-time charts.
 
 ### 2. 🎭 Deep Sentiment Analysis & Emotion Detection
-
 Understand what your customers really feel. Sentiment analysis via **TextBlob NLP** and detection of **7 emotions**: Joy 😊, Anger 😠, Sadness 😢, Fear 😨, Disgust 🤢, Surprise 😲, Neutral 🤔.
 
 ### 3. 💬 AI Automatic Response Generator
-
 Respond professionally to each review in one click. Generation of **personalized** responses based on the detected sentiment.
 
 ### 4. 🎯 Competitive Reputation Radar
-
 Objectively compare yourself to your competitors with an interactive **spider chart** across 6 axes.
 
 ### 5. 🔮 Reputation Trend Prediction
-
 Anticipate the future of your reputation with **linear regression** on historical data and predictions over **3 to 12 months**.
 
 ---
@@ -249,7 +255,7 @@ AI-BusinessPulse/
 ├── LICENSE               # MIT License
 ├── .gitignore            # Files to ignore
 └── .streamlit/
-    └── config.toml          # Streamlit theme configuration
+    └── config.toml       # Streamlit theme configuration
 ```
 
 ---
