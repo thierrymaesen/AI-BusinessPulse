@@ -26,6 +26,8 @@
 
 ---
 
+<img src="AI-BusinessPulse.png" alt="AI-BusinessPulse" width="600">
+
 ## 🚀 Essayer en ligne (Démo live)
 
 Vous pouvez tester **AI-BusinessPulse** directement dans votre navigateur, sans rien installer :
