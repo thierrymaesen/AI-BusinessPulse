@@ -36,6 +36,11 @@ import json                     # Gestion JSON
 from collections import Counter # Comptage d'éléments
 import re                       # Expressions régulières
 
+# --- Téléchargement des données NLTK nécessaires pour TextBlob ---
+import nltk
+nltk.download('punkt_tab', quiet=True)
+nltk.download('punkt', quiet=True)
+
 # ============================================================
 # CONFIGURATION STREAMLIT - Paramètres de la page
 # ============================================================
@@ -992,7 +997,7 @@ def main():
     st.markdown(
                 "<div style='text-align: center; color: #888; padding: 1rem;'>"
                 "🧠 AI-BusinessPulse v1.0 | Développé par Thierry Maesen | "
-                "<a href='https://github.com/thierrymaesen/AI-BusinessPulse'>GitHub</a>"
+                "<a href='https://github.com/thierrymaesen/AI-BusinessPulhse'>GitHub</a>"
                 "</div>",
                 unsafe_allow_html=True
     )
