@@ -20,14 +20,3 @@ textColor = "#fafafa"
 
 # Police de caractères utilisée
 font = "sans serif"
-
-[server]
-# Port par défaut de l'application
-port = 8501
-
-# Ouvre automatiquement le navigateur au lancement
-headless = false
-
-[browser]
-# Titre de l'onglet du navigateur
-serverAddress = "localhost"
