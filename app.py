@@ -590,7 +590,7 @@ def main():
         # Champ de saisie pour le nom de l'entreprise
         business_name = st.text_input(
                         "🏢 Nom de votre entreprise",
-                        value="TeamOne Be",
+                        value="Entreprise ABC",
                         help="Entrez le nom de votre entreprise à analyser"
         )
 
