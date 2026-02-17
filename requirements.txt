@@ -2,29 +2,18 @@
 # AI-BusinessPulse - Requirements
 # ============================================================
 # Plateforme d'Intelligence de Réputation d'Entreprise par IA
-# Toutes les dépendances nécessaires pour exécuter le projet
+# Seules les dépendances réellement utilisées par app.py
 # ============================================================
 
 # --- Framework Web & Interface ---
-streamlit>=1.28.0              # Interface utilisateur interactive
+streamlit>=1.28.0           # Interface utilisateur interactive
 
 # --- Traitement du Langage Naturel (NLP) ---
-textblob>=0.17.1               # Analyse de sentiment de base
-transformers>=4.35.0           # Modèles NLP pré-entraînés (HuggingFace)
-torch>=2.1.0                   # Backend pour les modèles transformers
+textblob>=0.17.1            # Analyse de sentiment
 
 # --- Visualisation des Données ---
-plotly>=5.18.0                 # Graphiques interactifs
-matplotlib>=3.8.0              # Graphiques statiques
+plotly>=5.18.0              # Graphiques interactifs
 
 # --- Manipulation des Données ---
-pandas>=2.1.0                  # DataFrames et manipulation de données
-numpy>=1.26.0                  # Calculs numériques
-
-# --- Génération de Données de Démonstration ---
-faker>=20.0.0                  # Génération de données réalistes
-
-# --- Utilitaires ---
-wordcloud>=1.9.2               # Nuages de mots visuels
-scikit-learn>=1.3.0            # Algorithmes de ML pour prédictions
-scipy>=1.11.0                  # Calculs scientifiques
+pandas>=2.1.0               # DataFrames et manipulation de données
+numpy>=1.26.0               # Calculs numériques (régression linéaire)
