@@ -40,6 +40,81 @@ Vous pouvez tester **AI-BusinessPulse** directement dans votre navigateur, sans 
 
 👉 **[Lancer AI-BusinessPulse sur Streamlit](https://ai-businesspulse-thierrymaesen.streamlit.app/)**
 
+
+---
+
+## 📸 Captures d'écran / Screenshots
+
+### 📊 Dashboard Principal — KPIs et Vue d'ensemble
+Le tableau de bord principal affiche les indicateurs clés de performance : note moyenne, nombre total d'avis, pourcentage d'avis positifs/négatifs, et nombre de sources agrégées.
+
+*The main dashboard displays key performance indicators: average rating, total reviews, positive/negative review percentages, and number of aggregated sources.*
+
+![Dashboard Principal](https://github.com/user-attachments/assets/0b2cfe6e-1276-429d-8c35-657340984da9)
+
+### 📈 Répartition des Avis par Source & Distribution des Notes
+Visualisez la répartition de vos avis entre les différentes plateformes (Google, Yelp, Facebook, Trustpilot, TripAdvisor) et la distribution des notes de 1 à 5 étoiles.
+
+*View the distribution of your reviews across platforms (Google, Yelp, Facebook, Trustpilot, TripAdvisor) and the rating distribution from 1 to 5 stars.*
+
+![Graphiques Sources et Notes](https://github.com/user-attachments/assets/f1cd1bce-ef99-4511-b072-193aff08dd56)
+
+### 📅 Volume d'Avis par Mois (12 derniers mois)
+Suivez l'évolution du volume de vos avis clients mois par mois sur les 12 derniers mois pour identifier les tendances saisonnières.
+
+*Track the evolution of your customer review volume month by month over the last 12 months to identify seasonal trends.*
+
+![Volume Mensuel](https://github.com/user-attachments/assets/3c2af441-8340-4ec8-9664-e05f6e585516)
+
+### 🎭 Analyse de Sentiment & Détection d'Émotions
+L'IA analyse chaque avis pour détecter les émotions dominantes (Joie, Neutre, Colère, Tristesse, Dégoût) et la distribution globale des sentiments (Positif, Négatif, Neutre).
+
+*The AI analyzes each review to detect dominant emotions (Joy, Neutral, Anger, Sadness, Disgust) and the overall sentiment distribution (Positive, Negative, Neutral).*
+
+![Sentiment et Émotions](https://github.com/user-attachments/assets/8db76cd2-273f-46f8-b401-b4a4a0c9c321)
+
+### 🗺️ Carte des Sentiments (Polarité vs Subjectivité)
+Visualisez la carte interactive des sentiments qui positionne chaque avis selon sa polarité (-1 à +1) et sa subjectivité (0 à 1), coloré par émotion détectée.
+
+*View the interactive sentiment map that positions each review by polarity (-1 to +1) and subjectivity (0 to 1), colored by detected emotion.*
+
+![Carte des Sentiments](https://github.com/user-attachments/assets/bed850c2-5bbf-487d-b922-8746971af0dc)
+
+### 💬 Générateur de Réponses Automatiques IA
+L'IA génère des réponses personnalisées et professionnelles pour chaque avis client en attente, avec détection automatique du sentiment et de l'émotion.
+
+*The AI generates personalized and professional responses for each pending customer review, with automatic sentiment and emotion detection.*
+
+![Réponses IA](https://github.com/user-attachments/assets/a57cad4e-0f66-4431-8e32-ac9cd277c80e)
+
+### 🎯 Radar Concurrentiel Multi-Axes
+Comparez votre entreprise avec vos concurrents sur 6 axes stratégiques : Qualité-Prix, Réactivité, Satisfaction, Innovation, Présence Online et Fidélité.
+
+*Compare your business with competitors across 6 strategic axes: Value for Money, Responsiveness, Satisfaction, Innovation, Online Presence, and Loyalty.*
+
+![Radar Concurrentiel](https://github.com/user-attachments/assets/41e27ab4-aac7-4776-a866-ce8f38b3e204)
+
+### 📊 Tableau Comparatif & Forces/Faiblesses
+Tableau détaillé avec code couleur comparant les scores sur chaque axe, accompagné d'une analyse IA identifiant vos points forts et axes d'amélioration.
+
+*Detailed color-coded table comparing scores on each axis, accompanied by an AI analysis identifying your strengths and areas for improvement.*
+
+![Tableau Comparatif](https://github.com/user-attachments/assets/12984ecf-6ea2-46aa-bec6-49ae69e039d3)
+
+### 🔮 Prédiction de Tendances de Réputation
+Visualisez l'évolution historique de votre note moyenne et les prédictions IA sur les prochains mois, avec intervalle de confiance.
+
+*View the historical evolution of your average rating and AI predictions for the coming months, with confidence interval.*
+
+![Prédictions](https://github.com/user-attachments/assets/d062d314-4154-4aec-941f-e37a273a2030)
+
+### 💡 Recommandations IA pour Améliorer votre Réputation
+L'IA analyse les tendances et génère des recommandations personnalisées : tendance globale, note prédite, et actions concrètes à mettre en place.
+
+*The AI analyzes trends and generates personalized recommendations: overall trend, predicted rating, and concrete actions to implement.*
+
+![Recommandations IA](https://github.com/user-attachments/assets/52dcec35-f9a1-42e9-9858-32c29838fce4)
+
 ---
 
 ## 🎯 Problème Résolu
@@ -198,6 +273,15 @@ Ce projet est sous licence **MIT** — voir le fichier [LICENSE](LICENSE) pour p
 You can test **AI-BusinessPulse** directly in your browser, no installation required:
 
 👉 **[Launch AI-BusinessPulse on Streamlit](https://ai-businesspulse-thierrymaesen.streamlit.app/)**
+
+
+---
+
+## 📸 Screenshots
+
+> 📷 See the [Screenshots section above](#-captures-décran--screenshots) for detailed screenshots with bilingual descriptions (FR/EN).
+> 
+> 📷 Consultez la [section Captures d'écran ci-dessus](#-captures-décran--screenshots) pour les captures d'écran détaillées avec descriptions bilingues (FR/EN).
 
 ---
 
