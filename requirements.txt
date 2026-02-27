@@ -17,3 +17,6 @@ plotly>=5.18.0              # Graphiques interactifs
 # --- Manipulation des Données ---
 pandas>=2.1.0               # DataFrames et manipulation de données
 numpy>=1.26.0               # Calculs numériques (régression linéaire)
+
+# --- Visualisation avancée (requis par pandas Styler.background_gradient) ---
+matplotlib>=3.8.0          # Colormaps pour pandas Styler
