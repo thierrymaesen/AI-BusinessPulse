@@ -14,8 +14,14 @@
 
 ### Plateforme d'Intelligence de Réputation d'Entreprise propulsée par l'IA
 
+[![CI](https://github.com/thierrymaesen/AI-BusinessPulse/actions/workflows/ci.yml/badge.svg)](https://github.com/thierrymaesen/AI-BusinessPulse/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
+[![Plotly](https://img.shields.io/badge/Plotly-5.18+-3F4F75.svg)](https://plotly.com)
+[![Pandas](https://img.shields.io/badge/Pandas-2.1+-150458.svg)](https://pandas.pydata.org)
+[![NumPy](https://img.shields.io/badge/NumPy-1.26+-013243.svg)](https://numpy.org)
+[![TextBlob](https://img.shields.io/badge/TextBlob-NLP-green.svg)](https://textblob.readthedocs.io)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8+-11557C.svg)](https://matplotlib.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Made with AI](https://img.shields.io/badge/Made%20with-AI%20%F0%9F%A4%96-purple.svg)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -120,6 +126,7 @@ AI-BusinessPulse/
 | **Plotly** | Graphiques interactifs | Graphiques professionnels |
 | **Pandas** | Manipulation de données | Standard de l'industrie |
 | **NumPy** | Calculs numériques | Régression linéaire |
+| **Matplotlib** | Colormaps & styles | Requis par Pandas Styler |
 
 ---
 
@@ -168,8 +175,14 @@ Ce projet est sous licence **MIT** — voir le fichier [LICENSE](LICENSE) pour p
 
 ### AI-powered Business Reputation Intelligence Platform
 
+[![CI](https://github.com/thierrymaesen/AI-BusinessPulse/actions/workflows/ci.yml/badge.svg)](https://github.com/thierrymaesen/AI-BusinessPulse/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
+[![Plotly](https://img.shields.io/badge/Plotly-5.18+-3F4F75.svg)](https://plotly.com)
+[![Pandas](https://img.shields.io/badge/Pandas-2.1+-150458.svg)](https://pandas.pydata.org)
+[![NumPy](https://img.shields.io/badge/NumPy-1.26+-013243.svg)](https://numpy.org)
+[![TextBlob](https://img.shields.io/badge/TextBlob-NLP-green.svg)](https://textblob.readthedocs.io)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8+-11557C.svg)](https://matplotlib.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Made with AI](https://img.shields.io/badge/Made%20with-AI%20%F0%9F%A4%96-purple.svg)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -272,6 +285,7 @@ AI-BusinessPulse/
 | **Plotly** | Interactive charts | Professional graphics |
 | **Pandas** | Data manipulation | Industry standard |
 | **NumPy** | Numerical computations | Linear regression |
+| **Matplotlib** | Colormaps & styles | Required by Pandas Styler |
 
 ---
 
